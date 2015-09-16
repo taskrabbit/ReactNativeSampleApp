@@ -69,6 +69,10 @@ We're running our integration tests through Appium and it's pretty neat.
 
 We've been trying out ways to not use mixins.
 
+### Context
+
+Some of the things that are props here are in the context in our real app.
+
 ### i18n
 
 We've internationalized our app.

@@ -17,12 +17,12 @@ var AuthActions = {
     };
   },
 
-  submitLogin: function(email, password, callback) {
-    AuthService.login(email, password, this.authCallback(callback));
+  submitLogin: function(username, password, callback) {
+    AuthService.login(username, password, this.authCallback(callback));
   },
 
-  submitSignup: function(email, password, callback) {
-    AuthService.signup(email, password, this.authCallback(callback));
+  submitSignup: function(username, password, callback) {
+    AuthService.signup(username, password, this.authCallback(callback));
   }
 };
 

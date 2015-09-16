@@ -8,8 +8,7 @@ var UserService = {
     data.token = response.token;
     data.userProps = {
       id: response.id,
-      locations: []
-      // TODO: first name, etc?
+      username: response.username
     };
     return data;
   },

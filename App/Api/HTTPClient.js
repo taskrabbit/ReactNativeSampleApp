@@ -66,7 +66,6 @@ var HTTPClient = {
     req = req.set('User-Agent', userAgent);
     req = req.set('X-CLIENT-VERSION', appVersion);
     req = req.set('X-Sample-User-Agent', userAgent);
-    req = req.set('X-Client-Application', apiKey);
     req = req.set('X-LOCALE', locale);
 
     var currentUser = CurrentUserStore.get();

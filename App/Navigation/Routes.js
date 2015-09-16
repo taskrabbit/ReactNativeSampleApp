@@ -16,7 +16,7 @@ var Routes = {
 
   Dashboard: function() {
     return {
-      component: require('../Screens/Dashboard'),
+      component: require('../Screens/Dashboard/Dashboard'),
       title: 'Dashboard',
       navRight: {
         subPath: 'settings',
