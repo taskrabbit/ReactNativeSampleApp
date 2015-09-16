@@ -1,46 +1,87 @@
 var React = require('react-native');
 var {
-  StyleSheet,
-  Text,
-  View,
+  View
 } = React;
 
-var Root = React.createClass({
-  render: function() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-      </View>
-    );
-  }
-});
+var assign = require('object-assign');
 
-var styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+var Router     = require('./Navigation/Router');
+var Launch     = require('./Root/Launch');
+var LoggedOut  = require('./Root/LoggedOut');
+var LoggedIn   = require('./Root/LoggedIn');
+var Launcher   = require('./Root/Launcher');
+
+var AppActions         = require('./Actions/AppActions');
+var CurrentUserStore   = require('./Stores/CurrentUserStore');
+var EnvironmentStore   = require('./Stores/EnvironmentStore');
+var DispatcherListener = require('./Mixins/DispatcherListener');
+
+function getUserState() {
+  return {
+    user: CurrentUserStore.get()
+  };
+};
+
+function getEnvironmentState() {
+  return {
+    environment: EnvironmentStore.get()
+  };
+};
+
+var Root = React.createClass({
+  mixins: [DispatcherListener],
+
+  getInitialState: function() {
+    return assign({},
+                getUserState(),
+                getEnvironmentState()
+    );
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+
+  onUserChange: function() {
+    var state = getUserState();
+    state.routeStack = Router.parse(null, state.user.isLoggedIn(), true);
+    this.setState(state);
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+
+  onEnvChange: function() {
+    this.setState(getEnvironmentState());
   },
+
+  dispatchAction: function(action) {
+    Launcher.launch(this, action);
+  },
+
+  componentDidMount: function() {
+    CurrentUserStore.addChangeListener(this.onUserChange);
+    EnvironmentStore.addChangeListener(this.onEnvChange);
+    AppActions.appLaunched();
+  },
+
+  componentWillUnmount: function() {
+    EnvironmentStore.removeChangeListener(this.onEnvChange);
+    CurrentUserStore.removeChangeListener(this.onUserChange);
+  },
+
+  renderContent: function() {
+    var routeStack = this.state.routeStack;
+    if(this.state.user.isLoggedIn()) {
+      return(<LoggedIn ref="current" routeStack={routeStack} />);
+    }
+    else {
+      return(<LoggedOut ref="current" routeStack={routeStack} />);
+    }
+  },
+
+  render: function() {
+    // need to fetch current user and environment before launching
+    if (!this.state.user || !this.state.environment) {
+      return(<Launch ref="current" />);
+    }
+    else {
+      return this.renderContent();
+    }
+  }
 });
 
 module.exports = Root;
