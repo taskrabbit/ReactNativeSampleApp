@@ -3,7 +3,8 @@ var User = require("./models").User;
 var renderAccount = function (user) {
   var out = {
     id: user.id,
-    token: user.token
+    token: user.token,
+    username: user.username
   };
   return out;
 };
