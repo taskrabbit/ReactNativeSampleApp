@@ -12,10 +12,12 @@ var Text       = require('../../Components/Text');
 var PostListItem = React.createClass({
   render: function() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.content}>
-          {this.props.post.data.content}
-        </Text>
+      <View>
+        <View style={styles.container}>
+          <Text style={styles.content}>
+            {this.props.post.data.content}
+          </Text>
+        </View>
         <View style={cssVar('listFullLine')} />
       </View>
     );
@@ -27,11 +29,10 @@ var styles = StyleSheet.create({
     backgroundColor: 'white',
     flex: 1,
     flexDirection: 'row',
-    alignItems: 'center',
-    padding:20
+    padding: 25
   },
   content: {
-    fontSize: 18,
+    fontSize: 16,
   }
 });
 

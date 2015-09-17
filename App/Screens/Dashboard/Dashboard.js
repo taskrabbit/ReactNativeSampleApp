@@ -24,7 +24,7 @@ var Dashboard = React.createClass({
 
 var styles = StyleSheet.create({
   container: {
-  
+    flex: 1
   }
 });
 
