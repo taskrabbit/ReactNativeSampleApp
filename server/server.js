@@ -1,6 +1,7 @@
 "use strict";
 
 const koa = require("koa");
+const passport = require("koa-passport");
 const errorHandler = require("koa-error");
 const bodyParser = require("koa-bodyparser");
 const logger = require("koa-logger");
@@ -10,7 +11,7 @@ const app = module.exports = koa();
 app.use(logger());
 app.use(errorHandler());
 app.use(bodyParser());
-
+app.use(passport.initialize());
 
 var router = new Router();
 
@@ -29,6 +30,7 @@ var posts   = require("./posts");
 router.post("/api/signup",  auth.createUser);
 router.post("/api/login",   auth.loginUser);
 router.get ("/api/account", secured, auth.getCurrentUser);
+router.post("/api/posts", secured, posts.createPost);
 router.get ("/api/posts/:username", posts.userPosts);
 app.use(router.routes());
 

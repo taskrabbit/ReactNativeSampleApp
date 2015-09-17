@@ -5,6 +5,7 @@ var _postsCount = 0;
 var Post = function(user, content) {
   this.id = ++_postsCount;
   this.user_id  = user.id;
+  this.username = user.username;
   this.user     = user;
   this.content  = content;
 };
