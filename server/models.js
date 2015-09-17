@@ -57,7 +57,7 @@ User.prototype.authenticate = function(password) {
 
 User.prototype.addPost = function(content) {
   var post = Post.create(this, content);
-  this.posts.push(post);
+  this.posts.unshift(post);
   return post;
 };
 
