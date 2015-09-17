@@ -1,10 +1,13 @@
 var client = require('../Api/HTTPClient')
 
 var PostService = {
-  parsePost: function(data) {
+  parsePost: function(response) {
+    if (!response) return null;
+
     return {
-      id: data.id,
-      content: data.content
+      id: response.id,
+      content: response.content,
+      username: response.username
     };
   },
 
@@ -24,7 +27,14 @@ var PostService = {
       var listProps = PostService.parsePosts(response);
       callback(error, listProps);
     });
-  }
+  },
+
+  createPost: function(content, callback) {
+    client.post("api/posts", {content: content}, function(error, response) {
+      var postProps = PostService.parsePost(response);
+      callback(error, postProps);
+    });
+  },
 };
 
 module.exports = PostService;

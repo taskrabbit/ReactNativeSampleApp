@@ -7,6 +7,7 @@ var {
 
 module.exports = {
   gray90: '#323A3B',
+  gray50: '#828A8B',
   gray30: '#B4B9B9',
   gray20: '#CFD2D3',
   gray10: '#EBECEC',

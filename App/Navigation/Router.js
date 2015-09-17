@@ -43,6 +43,8 @@ var LoggedIn = {
           switch(path) {
             case 'settings':
               return Routes.Settings();
+            case 'post':
+              return Routes.CreatePost();
             default:
               return null;
           };

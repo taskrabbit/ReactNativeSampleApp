@@ -2,7 +2,6 @@ var React = require('react-native');
 var {
   View,
   StyleSheet,
-  TextInput,
   PixelRatio,
   TouchableWithoutFeedback
 } = React;
@@ -12,6 +11,7 @@ var cssVar = require('../Lib/cssVar');
 var AppActions = require('../Actions/AppActions');
 var Text       = require('../Components/Text');
 var Button     = require('../Components/Button');
+var TextInput  = require('../Components/TextInput');
 
 var AuthHelper = {
 
