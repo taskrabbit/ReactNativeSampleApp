@@ -16,7 +16,7 @@ var Routes = {
 
   Dashboard: function() {
     return {
-      component: require('../Screens/Dashboard/Dashboard'),
+      component: require('../Screens/Dashboard'),
       title: 'Dashboard',
       navLeft: {
         subPath: 'settings',
@@ -25,6 +25,34 @@ var Routes = {
       navRight: {
         subPath: 'post',
         label: '+' // TODO: icon font
+      }
+    };
+  },
+
+  PostList: function(username) {
+    return {
+      component: require('../Screens/PostList'),
+      title: '', // set to name
+      navRight: {
+        subPath: 'post',
+        label: '+' // TODO: icon font
+      },
+      passProps: {
+        username: username
+      }
+    };
+  },
+
+  FollowList: function(username) {
+    return {
+      component: require('../Screens/FollowList'),
+      title: '', // set to name
+      navRight: {
+        subPath: 'post',
+        label: '+' // TODO: icon font
+      },
+      passProps: {
+        username: username
       }
     };
   },

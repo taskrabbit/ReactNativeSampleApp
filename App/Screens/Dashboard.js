@@ -4,9 +4,9 @@ var {
   StyleSheet
 } = React;
 
-var PostList = require ('../../Screens/Dashboard/PostList');
+var PostList = require ('../Screens/PostList');
 
-var CurrentUserStore = require('../../Stores/CurrentUserStore');
+var CurrentUserStore = require('../Stores/CurrentUserStore');
 
 var Dashboard = React.createClass({
   render: function() {

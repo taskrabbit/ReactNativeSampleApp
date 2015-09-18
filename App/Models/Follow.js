@@ -9,7 +9,6 @@ Model.prototype.setAttributes = function(options) {
   options = (options || {});
   assign(this.data, {
     id: options.id,
-    content: options.content,
     username: options.username
   });
 };

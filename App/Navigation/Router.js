@@ -39,12 +39,21 @@ var LoggedIn = {
     switch (host) {
       case 'dashboard':
         var dashboard = Routes.Dashboard();
+        dashboard._routerAppend = 'posts';
         dashboard.parse = function(path) {
           switch(path) {
             case 'settings':
               return Routes.Settings();
             case 'post':
               return Routes.CreatePost();
+            case 'posts':
+              var posts = Routes.PostList('bleonard');
+              posts._routerReplace = true;
+              return posts;
+            case 'follows':
+              var follows = Routes.FollowList('bleonard');
+              follows._routerReplace = true;
+              return follows;
             default:
               return null;
           };
@@ -84,6 +93,7 @@ var Router = {
     var parsed = parseUri(toParse);
     var pieces = parsed.path.split("/");
     pieces.unshift(parsed.host);
+    pieces = pieces.filter(function(v) { return v && v.length > 0 });
     var current = loggedIn ? LoggedIn : LoggedOut;
     var stack = [];
 

@@ -10,5 +10,6 @@ module.exports = keyMirror({
   NETWORK_ACTIVITY: null,
   NAVBAR_UPDATE: null,
   POST_LIST_UPDATED: null,
-  POST_ADDED: null
+  POST_ADDED: null,
+  FOLLOW_LIST_UPDATED: null
 });
