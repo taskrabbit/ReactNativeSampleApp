@@ -1,6 +1,5 @@
 // in memory database for testing
 
-var _posts = {}
 var _postsCount = 0;
 var Post = function(user, content) {
   this.id = ++_postsCount;
@@ -12,8 +11,23 @@ var Post = function(user, content) {
 
 Post.create = function(user, content) {
   var post = new Post(user, content);
-  _posts[post.id] = post;
   return post;
+};
+
+
+var _followCount = 0;
+var Follow = function(user, other) {
+  this.id = ++_followCount;
+  this.user_id   = user.id;
+  this.user      = user;
+  this.follow_id = other.id;
+  this.username  = other.username;
+  this.folows    = other;
+};
+
+Follow.create = function(user, other) {
+  var follow = new Follow(user, other);
+  return follow;
 };
 
 
@@ -23,7 +37,8 @@ var User = function(username) {
   this.id = ++_usersCount;
   this.username = username;
   this.password = null;
-  this.posts = [];
+  this.posts    = [];
+  this.follows  = [];
 };
 
 User.findByUsername = function(username) {
@@ -44,10 +59,10 @@ User.findByToken = function(token) {
   return null;
 };
 
-User.create = function(username, password) {
+User.create = function(username, password, token) {
   var user = new User(username);
   user.password = password;
-  user.token = Math.random().toString(36).substr(2);
+  user.token = token || Math.random().toString(36).substr(2);
   _users[user.id] = user;
   return user;
 };
@@ -66,14 +81,28 @@ User.prototype.getPosts = function() {
   return this.posts;
 };
 
+User.prototype.addFollow = function(other) {
+  var follow = Follow.create(this, other);
+  this.follows.unshift(follow);
+  return follow;
+};
+
+User.prototype.getFollows = function() {
+  return this.follows;
+};
 
 // Seed some people
-var bleonard = User.create('bleonard', 'sample');
-var jrlai    = User.create('jrlai', 'sample');
+var bleonard = User.create('bleonard', 'sample', 'qwertyuiopasdfghjkl');
+var jrlai    = User.create('jrlai', 'sample', 'poiuytrewqlkjhgfdsa');
+var david    = User.create('david', 'sample', 'zxcvbnmqwertlkjhg');
 
 bleonard.addPost('one');
 bleonard.addPost('two');
 bleonard.addPost('three');
+bleonard.addFollow(david);
+bleonard.addFollow(jrlai);
+
+jrlai.addPost('four');
+jrlai.addFollow(david);
 
 exports.User = User;
-exports.Post = Post;

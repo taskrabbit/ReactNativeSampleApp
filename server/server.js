@@ -26,13 +26,15 @@ router.use(function *(next) {
 var secured = require('./secured')
 var auth    = require("./auth");
 var posts   = require("./posts");
- 
+var follows = require("./follows");
+
 router.post("/api/signup",  auth.createUser);
 router.post("/api/login",   auth.loginUser);
 router.get ("/api/account", secured, auth.getCurrentUser);
 router.post("/api/posts", secured, posts.createPost);
 router.get ("/api/posts/:username", posts.userPosts);
-app.use(router.routes());
+router.get ("/api/follows/:username", follows.userFollows);
 
+app.use(router.routes());
 app.listen(3000);
 console.log("Server started, listening on port: 3000");
