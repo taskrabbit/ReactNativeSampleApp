@@ -14,7 +14,9 @@ var {
   ListView
 } = React;
 
+var CurrentUserStore   = require('../Stores/CurrentUserStore');
 var NavigationListener = require('../Mixins/NavigationListener');
+var NavBarHelper       = require('../Mixins/NavBarHelper');
 
 var Loading          = require('../Screens/Loading');
 var Text             = require('../Components/Text');
@@ -22,7 +24,7 @@ var SegmentedControl = require('../Components/SegmentedControl');
 var SimpleList       = require('../Components/SimpleList');
 
 var ListHelper = {
-  mixins: [NavigationListener],
+  mixins: [NavigationListener, NavBarHelper],
 
   getInitialState: function() {
     return this.getListState();
@@ -56,14 +58,27 @@ var ListHelper = {
     this.props.store.removeChangeListener(this.onListChange);
   },
 
+  getNavBarState: function() {
+    var title = this.props.username ? this.props.username : "Dashboard";
+    return { title: title };
+  },
+
+  getUsername: function() {
+    if (!this.username) {
+      this.username = this.props.username || CurrentUserStore.get().data.username;
+    }
+    return this.username;
+  },
+
   renderItems: function() {
     return (
       <SimpleList
-        {...this.props.listProps}
         style={styles.flex}
+        currentRoute={this.props.currentRoute}
         getItemProps={this.getItemProps}
         items={this.state.items}
         reloadList={this.reloadList}
+        {...this.props.listProps}
       />
     );
   },

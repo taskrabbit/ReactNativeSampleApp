@@ -14,29 +14,10 @@ var Routes = {
     };
   },
 
-  Dashboard: function() {
-    return {
-      component: require('../Screens/Dashboard'),
-      title: 'Dashboard',
-      navLeft: {
-        subPath: 'settings',
-        label: 'Me' // TODO: icon font
-      },
-      navRight: {
-        subPath: 'post',
-        label: '+' // TODO: icon font
-      }
-    };
-  },
-
   PostList: function(username) {
     return {
       component: require('../Screens/PostList'),
       title: '', // set to name
-      navRight: {
-        subPath: 'post',
-        label: '+' // TODO: icon font
-      },
       passProps: {
         username: username
       }
@@ -47,10 +28,6 @@ var Routes = {
     return {
       component: require('../Screens/FollowList'),
       title: '', // set to name
-      navRight: {
-        subPath: 'post',
-        label: '+' // TODO: icon font
-      },
       passProps: {
         username: username
       }

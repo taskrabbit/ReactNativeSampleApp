@@ -34,31 +34,69 @@ parseUri.options = {
   }
 };
 
+
+
+var listRoute = function(route, defaultRoute) {
+  var username = route.passProps ? route.passProps.username : null;
+  route.parse = function(path) {
+    switch(path) {
+      case '_post':
+        return Routes.CreatePost();
+      case '_settings':
+        // only on 'Dashboard'
+        if(username) return null;
+        return Routes.Settings();
+      default:
+        if (!defaultRoute) return null;
+        return defaultRoute(path);
+    }
+  }
+
+  if(!route.navRight) {
+    route.navRight = {
+      subPath: '_post',
+      label: '+' // TODO: icon font
+    };
+  }
+
+  if(!route.navLeft && !username) {
+    route.navLeft = {
+      subPath: '_settings',
+      label: 'Me' // TODO: icon font
+    };
+  }
+  return route;
+};
+
+var userRoute = function(username) {
+  var route = {}
+  route._notAddressable = true;
+  route._routerAppend = 'posts';
+
+  route.parse = function(path) {
+    switch(path) {
+      case 'posts':
+        return listRoute(Routes.PostList(username), function(postId) {
+          // TOOD: show post
+          return null;
+        });
+      case 'follows':
+        return listRoute(Routes.FollowList(username), function(follow) {
+          // it's a user
+          return userRoute(follow);
+        });
+      default:
+        return null;
+    };
+  };
+  return route;
+};
+
 var LoggedIn = {
   parse: function(host) {
     switch (host) {
-      case 'dashboard':
-        var dashboard = Routes.Dashboard();
-        dashboard._routerAppend = 'posts';
-        dashboard.parse = function(path) {
-          switch(path) {
-            case 'settings':
-              return Routes.Settings();
-            case 'post':
-              return Routes.CreatePost();
-            case 'posts':
-              var posts = Routes.PostList('bleonard');
-              posts._routerReplace = true;
-              return posts;
-            case 'follows':
-              var follows = Routes.FollowList('bleonard');
-              follows._routerReplace = true;
-              return follows;
-            default:
-              return null;
-          };
-        };
-        return dashboard;
+      case 'dashboard':        
+        return userRoute(null);
       default:
         return null;
     }
@@ -120,7 +158,16 @@ var Router = {
           if (route._routerReplace) {
             stack[stack.length-1] = route;
           }
-          else if (!route._notAddressable) {
+          else if (route._notAddressable) {
+            if (route._routerAppend && i === (pieces.length-1)) {
+              // add soemthing to route on the last one (kind of like a forward)
+              var child = route.parse(route._routerAppend);
+              child.routePath = route.routePath + "/" + route._routerAppend;
+              route = child;
+              stack.push(route);
+            }
+          }
+          else {
             if (route._routerAppend && i === (pieces.length-1)) {
               // add soemthing to route on the last one (kind of like a forward)
               route.routePath = route.routePath + "/" + route._routerAppend;

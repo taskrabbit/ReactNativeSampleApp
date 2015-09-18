@@ -12,7 +12,7 @@ var FollowList = React.createClass({
     return {
       store: FollowListStore,
       listProps: {
-        noTap: true
+        nextIcon: true
       },
       segment: {
         items: [
@@ -31,22 +31,24 @@ var FollowList = React.createClass({
   },
 
   getListItems: function() {
-    return FollowListStore.get(this.props.username);
+    return FollowListStore.get(this.getUsername());
   },
 
   isListChange: function(username) {
-    return this.props.username == username;
+    return this.getUsername() == username;
   },
 
   getItemProps: function(follow) {
     return {
-      title: follow.data.username
+      key: follow.data.id,
+      title: follow.data.username,
+      subPath: follow.data.username
     }
   },
 
   reloadList: function() {
-    console.log("reloading follows: " + this.props.username);
-    FollowActions.fetchList(this.props.username, function(error) {
+    console.log("reloading follows: " + this.getUsername());
+    FollowActions.fetchList(this.getUsername(), function(error) {
       // TODO: handle error
       if (error) {
         alert(error.message);
