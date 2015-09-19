@@ -21,7 +21,7 @@ In the `server` directory
 * Install nvm and iojs-v2.4.0
 * Run it: `npm start`
 
-It has sample data in the `models.js` file. For example, there is a user bleonard (password: "sample") tha you can log in as.
+It has sample data in the `models.js` file. For example, there is a user bleonard (password: "sample") that you can log in as.
 
 ### Android
 
