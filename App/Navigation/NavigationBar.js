@@ -144,11 +144,6 @@ var NavigationBar = {
 var styles = StyleSheet.create({
   appContainer: {
     flex: 1
-    //position: 'absolute',
-    //left: 0,
-    //top: 0,
-    //right: 0,
-    //bottom: 0
   },
   navBar: {
     backgroundColor: cssVar('blue50'),
