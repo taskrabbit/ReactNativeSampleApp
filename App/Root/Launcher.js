@@ -1,5 +1,5 @@
 var AppConstants = require('../Constants/AppConstants');
-var Router       = require('../Navigation/Router');
+var Routes       = require('../Navigation/Routes');
 
 var StatusBar    = require('../Platform/StatusBar');
 var Linking      = require('../Platform/Linking');
@@ -10,7 +10,7 @@ var Launcher = {
       case AppConstants.LAUNCH_ROUTE_PATH:
         var routePath = action.routePath;
         var loggedIn = root.state && root.state.user.isLoggedIn();
-        var parsed = Router.parse(routePath, loggedIn, false);
+        var parsed = Routes.parse(routePath, loggedIn, false);
         if (!parsed) {
           alert("Unknown route: " + routePath);
         }

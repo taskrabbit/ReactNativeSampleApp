@@ -5,7 +5,7 @@ var {
 
 var assign = require('object-assign');
 
-var Router     = require('./Navigation/Router');
+var Routes     = require('./Navigation/Routes');
 var Launch     = require('./Root/Launch');
 var LoggedOut  = require('./Root/LoggedOut');
 var LoggedIn   = require('./Root/LoggedIn');
@@ -40,7 +40,7 @@ var Root = React.createClass({
 
   onUserChange: function() {
     var state = getUserState();
-    state.routeStack = Router.parse(null, state.user.isLoggedIn(), true);
+    state.routeStack = Routes.parse(null, state.user.isLoggedIn(), true);
     this.setState(state);
   },
 
