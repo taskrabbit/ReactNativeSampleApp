@@ -97,6 +97,10 @@ We've internationalized our app.
 We'll have to figure this one out eventually.
 
 
+## License
+
+MIT
+
 
 
 
