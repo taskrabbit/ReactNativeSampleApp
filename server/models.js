@@ -91,18 +91,29 @@ User.prototype.getFollows = function() {
   return this.follows;
 };
 
-// Seed some people
-var bleonard = User.create('bleonard', 'sample', 'qwertyuiopasdfghjkl');
-var jrlai    = User.create('jrlai', 'sample', 'poiuytrewqlkjhgfdsa');
-var david    = User.create('david', 'sample', 'zxcvbnmqwertlkjhg');
+// Seed some users
+var bleonard    = User.create('bleonard', 'sample', 'qwertyuiopasdfghjkl');
+var jrichardlai = User.create('jrichardlai', 'sample', 'poiuytrewqlkjhgfdsa');
+var taskrabbit  = User.create('taskrabbit', 'sample', 'zxcvbnmqwertlkjhg');
 
-bleonard.addPost('one');
-bleonard.addPost('two');
-bleonard.addPost('three');
-bleonard.addFollow(david);
-bleonard.addFollow(jrlai);
+bleonard.addPost("When you have a use case and wish an app existed. Then you remember you made it 7 years ago. #boston");
+bleonard.addPost("I keep getting a facebook notification that asks if I know Nathan Cron.\nIt seems like every few days around this time #destiny");
+bleonard.addPost("Learning CSS...\nDaughter: Put it in the middle between the top and bottom.\nDad: (googles again) Are you sure?");
+bleonard.addPost("#reactjs #flux child components are like teenagers. they don't tell parents what they are up to. parent has to hear later from dispatcher.");
 
-jrlai.addPost('four');
-jrlai.addFollow(david);
+jrichardlai.addPost("The problem with Rails today is that 1/2 the people are afraid Rails is turning into Java and the other 1/2 are trying to turn it into Java");
+jrichardlai.addPost("Thanks @TaskRabbit to allow my party of 10 people to eat at House of Prime Ribs with 0 minutes wait :)! Yummy! #TaskTuesday");
+
+taskrabbit.addPost("When you're a #NewParent tasks can really pile up. We can help! Check out our Task of the Week http://tinyurl.com/pxh88f8");
+taskrabbit.addPost("@TaskRabbit CEO @leahbusque talks about confidence necessary to propel your idea forward #DF15WomenLead #df15");
+taskrabbit.addPost("Happiness is the sound of someone else building your IKEA furniture. #taskrabbit");
+
+bleonard.addFollow(jrichardlai);
+bleonard.addFollow(taskrabbit);
+
+jrichardlai.addFollow(bleonard);
+jrichardlai.addFollow(taskrabbit);
+
+taskrabbit.addFollow(bleonard);
 
 exports.User = User;
