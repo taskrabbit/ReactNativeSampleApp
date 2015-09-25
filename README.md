@@ -5,6 +5,8 @@ At [TaskRabbit](https://www.taskrabbit.com), we are trying to understand the bes
 The app itself is vaguely like twitter/tumblr. There are users that make posts. They follow other users. You can look at follows and their posts. The features (or styling) isn't the main point. At this time, we're mostly demonstrating architectural concepts.
 
 ### iOS
+In the root directory
+* Install dependencies: `npm install`
 
 In the `ios` directory
 
