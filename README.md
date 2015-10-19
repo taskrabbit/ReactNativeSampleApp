@@ -18,7 +18,7 @@ There is a server that the app hits for data. The data is only stored in memory,
 
 In the `server` directory
 
-* Install nvm and iojs-v2.4.0
+* Install nvm and node-4.0.0
 * Run it: `npm start`
 
 It has sample data in the `models.js` file. For example, there is a user bleonard (password: "sample") that you can log in as.
