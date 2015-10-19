@@ -38,9 +38,9 @@ var SingletonStore = assign({}, EventEmitter.prototype, {
 Dispatcher.register(function(action) {
   switch(action.actionType) {
     case AppConstants.APP_LAUNCHED:
-      EnvironmentManager.get(function(name) {
-        console.log("Environment: " + name);
-        setSingleton({name: name});
+      EnvironmentManager.get(function(attributes) {
+        console.log("Environment: " + attributes.name);
+        setSingleton(attributes);
         SingletonStore.emitChange();
       });
       break;

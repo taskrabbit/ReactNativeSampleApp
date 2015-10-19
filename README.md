@@ -14,16 +14,22 @@ In the `ios` directory
 * Install Pods: `pod install`
 * Launch: `open Sample.xcworkspace`
 
-#### Server
+### Server
 
 There is a server that the app hits for data. The data is only stored in memory, but it should produce a more realistic environment.
 
 In the `server` directory
 
-* Install nvm and iojs-v2.4.0
+* Install nvm and node-4.0.0
 * Run it: `npm start`
 
 It has sample data in the `models.js` file. For example, there is a user bleonard (password: "sample") that you can log in as.
+
+### Compiling
+
+You can compile and put it on the phone with: `npm run install:staging`
+
+Not that there's a staging server at this point, but it's an example of how to compile things via the command line.
 
 ### Android
 

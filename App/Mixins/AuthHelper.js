@@ -13,6 +13,8 @@ var Text       = require('../Components/Text');
 var Button     = require('../Components/Button');
 var TextInput  = require('../Components/TextInput');
 
+var EnvironmentStore = require('../Stores/EnvironmentStore');
+
 var AuthHelper = {
 
   // parent implements: onAuthButton, getDefaultProps
@@ -111,7 +113,7 @@ var AuthHelper = {
         <View style={styles.bottom}>
           {this.renderPassword()}
           <View style={styles.flex} />
-          <Text style={[styles.bottomText, styles.version]}>TODO: v1</Text>
+          <Text style={[styles.bottomText, styles.version]}>Version {EnvironmentStore.get().displayVersion()}</Text>
         </View>
       </View>
     )
