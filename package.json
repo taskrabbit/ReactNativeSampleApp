@@ -3,7 +3,10 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node_modules/react-native/packager/packager.sh"
+    "start": "node_modules/react-native/packager/packager.sh",
+    "compile:test": "TARGET=test node tasks/compile.js",
+    "compile:staging": "TARGET=staging node tasks/compile.js",
+    "install:staging": "PHONE=true TARGET=staging node tasks/compile.js"
   },
   "dependencies": {
     "events": "^1.0.2",
@@ -17,5 +20,8 @@
     "react-native-refreshable-listview": "^1.3.0",
     "react-timer-mixin": "^0.13.3",
     "superagent": "^1.4.0"
+  },
+  "devDependencies": {
+    "ios-deploy": "^1.7.0"
   }
 }
