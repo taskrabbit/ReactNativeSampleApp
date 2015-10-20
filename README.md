@@ -21,6 +21,7 @@ There is a server that the app hits for data. The data is only stored in memory,
 In the `server` directory
 
 * Install nvm and node-4.0.0
+* Install dependencies: `npm install`
 * Run it: `npm start`
 
 It has sample data in the `models.js` file. For example, there is a user bleonard (password: "sample") that you can log in as.
@@ -42,7 +43,7 @@ We'll get there, but we're still working on the iOS version.
 
 The sole method of navigation (what's showing on the screen and where the back button goes) is via urls. We parse urls to determine the route stack. There is some stuff to make "related" url navigation look "right" (push and pop). Making everything addressable by URL is great for deep linking and forces each screen to be able to load all on it's own from simple data.
 
-The Router handles parsing different routes depending if you are logged in or not. The urls must be ablet o represent the entire navigation stack, so that means they can be recursive like my friend's friend's friend's feed (sample://dashboard/follows/john/follows/sarah/follows/amy/posts).
+The Router handles parsing different routes depending if you are logged in or not. The urls must be able to represent the entire navigation stack, so that means they can be recursive like my friend's friend's friend's feed (sample://dashboard/follows/john/follows/sarah/follows/amy/posts).
 
 #### Flux
 
@@ -108,7 +109,3 @@ We'll have to figure this one out eventually.
 ## License
 
 MIT
-
-
-
-
