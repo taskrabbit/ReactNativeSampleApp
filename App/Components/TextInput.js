@@ -9,10 +9,15 @@ var cssVar = require('../Lib/cssVar');
 var TextInput = React.createClass({
   propTypes: React.TextInput.propTypes,
 
+  focus() {
+    this.refs.input.focus();
+  },
+
   setNativeProps() {
     var input = this.refs.input;
     input.setNativeProps.apply(input, arguments);
   },
+
   render() {
     return (
       <React.TextInput

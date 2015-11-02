@@ -85,7 +85,7 @@ var AuthHelper = {
           enablesReturnKeyAutomatically={true}
           returnKeyType='next'
           onChange={(event) => this.state.username = event.nativeEvent.text }
-          onSubmitEditing={(event) => this.refs.password.focus() }
+          onSubmitEditing={() => this.refs.password.focus() }
           />
         <TextInput ref="password"
           placeholder={'Password'}
