@@ -6,6 +6,10 @@ var {
 var StatusBar = {
   setNetworkActive: function(active) {
     StatusBarIOS.setNetworkActivityIndicatorVisible(active);
+  },
+
+  setHidden: function(hidden) {
+    StatusBarIOS.setHidden(hidden);
   }
 };
 

@@ -4,9 +4,23 @@
   "private": true,
   "scripts": {
     "start": "node_modules/react-native/packager/packager.sh",
+    "test": "npm run mocha-test test",
+    "mocha-test": "mocha --recursive --compilers js:babel/register",
     "compile:test": "TARGET=test node tasks/compile.js",
     "compile:staging": "TARGET=staging node tasks/compile.js",
     "install:staging": "PHONE=true TARGET=staging node tasks/compile.js"
+  },
+  "babel": {
+    "whitelist": [
+      "es6.modules",
+      "es6.classes",
+      "es6.arrowFunctions",
+      "es6.constants",
+      "es6.spread",
+      "es6.blockScoping",
+      "es6.parameters",
+      "es6.destructuring"
+    ]
   },
   "dependencies": {
     "events": "^1.0.2",
@@ -22,6 +36,18 @@
     "superagent": "^1.4.0"
   },
   "devDependencies": {
-    "ios-deploy": "^1.7.0"
+    "appium": "1.4.13",
+    "babel": "^5.6.0",
+    "chai": "^3.2.0",
+    "chai-as-promised": "^5.1.0",
+    "colors": "^1.0.3",
+    "ios-deploy": "^1.7.0",
+    "koa": "^0.21.0",
+    "koa-bodyparser": "^2.0.1",
+    "mocha": "^2.2.5",
+    "promise": "^7.0.4",
+    "underscore": "^1.8.3",
+    "wd": "^0.3",
+    "yiewd": "^0.6.0"
   }
 }

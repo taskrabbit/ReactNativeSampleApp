@@ -47,7 +47,7 @@
 
   
 #ifdef TEST_ENVIRONMENT
-    jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle?platform=ios"];
+    jsCodeLocation = [NSURL URLWithString:@"http://localhost:9091/index.ios.bundle?platform=ios"];
 #else
   #if TARGET_IPHONE_SIMULATOR
     jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle?platform=ios"];
