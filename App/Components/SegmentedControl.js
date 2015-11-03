@@ -43,9 +43,9 @@ var Segment = React.createClass({
     if (this.props.selected) {
       return (
         <View
-          style={styles.flex}
+          style={[styles.flex, styles.selectedSegment]}
         >
-          <View style={[styles.button, styles.selectedButton]}>
+          <View style={[styles.button]}>
             <Text style={[styles.text, styles.selectedText]}>
               {this.props.title}
             </Text>
@@ -89,11 +89,12 @@ var styles = StyleSheet.create({
   },
   button: {
     padding: 5,
+    margin: 1,
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
-  selectedButton: {
+  selectedSegment: {
     backgroundColor: 'white',
   },
   linkButton: {
