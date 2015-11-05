@@ -51,7 +51,7 @@ var FollowList = React.createClass({
     FollowActions.fetchList(this.getUsername(), function(error) {
       // TODO: handle error
       if (error) {
-        alert(error.message);
+        console.log(error.message);
       }
     });
   }
