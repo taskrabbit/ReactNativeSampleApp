@@ -19,6 +19,16 @@ var Fixtures = {
     };
   },
 
+  friend: function() {
+    return {
+      username: 'friend',
+      posts: [
+        { id: 3, content: "post3", username: "friend" },
+        { id: 4, content: "post4", username: "friend" }
+      ]
+    };
+  },
+
   error: function(message, status, key, code) {
     return {
       status: (status ? status : 422),
