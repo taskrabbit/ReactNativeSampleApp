@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node_modules/react-native/packager/packager.sh",
-    "test": "npm run mocha-test test",
+    "test": "npm run mocha-test test/integration",
     "mocha-test": "mocha --recursive --compilers js:babel/register",
     "compile:test": "TARGET=test node tasks/compile.js",
     "compile:staging": "TARGET=staging node tasks/compile.js",
