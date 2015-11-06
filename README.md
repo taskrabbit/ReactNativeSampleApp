@@ -26,6 +26,16 @@ In the `server` directory
 
 It has sample data in the `models.js` file. For example, there is a user bleonard (password: "sample") that you can log in as.
 
+### Tests
+
+The integration tests are run using [Appium](http://appium.io/).
+
+To run tests:
+
+* Make sure you have the 9.0 simulators installed in XCode
+* Compile app for the test environment: `npm run compile:test`
+* Launch simulator and tests: `npm test`
+
 ### Compiling
 
 You can compile and put it on the phone with: `npm run install:staging`
@@ -35,7 +45,6 @@ Not that there's a staging server at this point, but it's an example of how to c
 ### Android
 
 We'll get there, but we're still working on the iOS version.
-
 
 # Current Concepts
 
@@ -84,10 +93,6 @@ We are currently sharing code through mixins. Some of them might be generally us
 # Future Concepts
 
 Let us know if you think one of these would be helpful
-
-#### Testing
-
-We're running our integration tests through Appium and it's pretty neat.
 
 #### Extensions
 
