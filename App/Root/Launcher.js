@@ -31,6 +31,11 @@ var Launcher = {
         //  root.setState({loading: false});
         //});
         break;
+      case AppConstants.TEST_COMPONENT_ROUTE:
+        var TestComponents = require("../Root/TestComponents");
+        action.routeUnderTest.component = TestComponents.find(action.routeUnderTest.component);
+        rootComponent.setState({routeUnderTest: action.routeUnderTest});
+        break;
       default:
         break;
     }

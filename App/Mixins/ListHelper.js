@@ -94,7 +94,7 @@ var ListHelper = {
   renderHeader: function() {
     if (!this.props.segment) return null;
     return (
-      <SegmentedControl currentRoute={this.props.currentRoute} {...this.props.segment} />
+      <SegmentedControl currentRoute={this.props.currentRoute} appendTestId={this.getUsername()} {...this.props.segment} />
     );
   },
 

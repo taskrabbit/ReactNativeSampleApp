@@ -16,8 +16,12 @@ var SegmentedControl = React.createClass({
     var out = [];
     for(var i = 0; i < this.props.items.length; i++) {
       var item = this.props.items[i];
+      var testID = null;
+      if (!item.testID && this.props.appendTestId) {
+        testID = 'seg' + item.title + '_' + this.props.appendTestId;
+      }
       out.push(
-        <Segment {...item} key={"item" + i} currentRoute={this.props.currentRoute} />
+        <Segment {...item} key={"item" + i} testID={testID} currentRoute={this.props.currentRoute} />
       );
     };
     return out;
@@ -58,6 +62,7 @@ var Segment = React.createClass({
         <TouchableHighlight
           style={styles.flex}
           underlayColor='#FFFFFF'
+          testID={this.props.testID}
           onPress={this.onSelection}
         >
           <View style={[styles.button, styles.linkButton]}>

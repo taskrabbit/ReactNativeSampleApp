@@ -10,6 +10,7 @@ var Launch     = require('./Root/Launch');
 var LoggedOut  = require('./Root/LoggedOut');
 var LoggedIn   = require('./Root/LoggedIn');
 var Launcher   = require('./Root/Launcher');
+var TestRunner = require('./Root/TestRunner');
 
 var AppActions         = require('./Actions/AppActions');
 var CurrentUserStore   = require('./Stores/CurrentUserStore');
@@ -64,6 +65,8 @@ var Root = React.createClass({
   },
 
   renderContent: function() {
+    if (this.state.routeUnderTest) return null;
+    
     var routeStack = this.state.routeStack;
     if(this.state.user.isLoggedIn()) {
       return(<LoggedIn ref="current" routeStack={routeStack} />);
@@ -77,6 +80,14 @@ var Root = React.createClass({
     // need to fetch current user and environment before launching
     if (!this.state.user || !this.state.environment) {
       return(<Launch ref="current" />);
+    }
+    else if (this.state.environment.data.name === 'test') {
+      return (
+        <View style={{flex:1}}>
+          <TestRunner routeUnderTest={this.state.routeUnderTest}/>
+          {this.renderContent()}
+        </View>
+      );
     }
     else {
       return this.renderContent();

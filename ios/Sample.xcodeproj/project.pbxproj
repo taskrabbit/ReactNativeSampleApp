@@ -24,6 +24,7 @@
 		684860A3F12E466838065EED /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A565388F7CDBDB0548B5DC8D /* libPods.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		D339AEF21BAA809100CFA651 /* libRNKeyboardEvents.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D339AEF01BAA808800CFA651 /* libRNKeyboardEvents.a */; };
+		D36840121BEA726800A9B3F4 /* TestRunnerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D36840111BEA726800A9B3F4 /* TestRunnerManager.m */; };
 		D374ADC51BA929C500453203 /* libRNKeychain.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D374ADC41BA929BA00453203 /* libRNKeychain.a */; };
 		D374ADD31BA9336E00453203 /* EnvironmentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D374ADD21BA9336E00453203 /* EnvironmentManager.m */; };
 /* End PBXBuildFile section */
@@ -139,6 +140,7 @@
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		A565388F7CDBDB0548B5DC8D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D339AEE11BAA808800CFA651 /* RNKeyboardEvents.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNKeyboardEvents.xcodeproj; path = "../node_modules/react-native-keyboardevents/RNKeyboardEvents.xcodeproj"; sourceTree = "<group>"; };
+		D36840111BEA726800A9B3F4 /* TestRunnerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestRunnerManager.m; path = Sample/TestRunnerManager.m; sourceTree = "<group>"; };
 		D36DCD9F1BD4A92600B3EB2F /* Staging.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Staging.xcconfig; sourceTree = "<group>"; };
 		D36DCDA01BD4A92600B3EB2F /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		D374ADB51BA929B900453203 /* RNKeychain.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNKeychain.xcodeproj; path = "../node_modules/react-native-keychain/RNKeychain.xcodeproj"; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 		13B07FAE1A68108700A75B9A /* Sample */ = {
 			isa = PBXGroup;
 			children = (
+				D36840111BEA726800A9B3F4 /* TestRunnerManager.m */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -636,6 +639,7 @@
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				D374ADD31BA9336E00453203 /* EnvironmentManager.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				D36840121BEA726800A9B3F4 /* TestRunnerManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

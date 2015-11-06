@@ -11,5 +11,6 @@ module.exports = keyMirror({
   NAVBAR_UPDATE: null,
   POST_LIST_UPDATED: null,
   POST_ADDED: null,
-  FOLLOW_LIST_UPDATED: null
+  FOLLOW_LIST_UPDATED: null,
+  TEST_COMPONENT_ROUTE: null,
 });
