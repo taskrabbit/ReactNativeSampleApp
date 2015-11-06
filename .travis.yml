@@ -1,0 +1,29 @@
+# Hepburn
+language: objective-c
+osx_image: xcode7
+xcode_sdk: iphonesimulator9.0
+
+cache:
+  directories:
+    - node_modules
+    - ios/Pods
+    - ~/.nvm
+
+before_install:
+  - which nvm || curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash
+  - export NVM_DIR=~/.nvm
+  - source ~/.nvm/nvm.sh --install
+  - nvm install 4.0
+  - brew update
+  - brew reinstall xctool
+  - brew reinstall watchman
+  - npm install
+  - gem install xcpretty
+  - gem install cocoapods
+  - pod install --project-directory=ios
+
+before_script:
+  - npm run compile:test
+
+script:
+  - npm test
