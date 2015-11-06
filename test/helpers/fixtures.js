@@ -19,12 +19,32 @@ var Fixtures = {
     };
   },
 
+  myFollows: function() {
+    return {
+      username: 'tester',
+      follows: [
+        { id: 42, username: "friend" },
+        { id: 2,  username: "follow2" }
+      ]
+    };
+  },
+
   friend: function() {
     return {
       username: 'friend',
       posts: [
         { id: 3, content: "post3", username: "friend" },
         { id: 4, content: "post4", username: "friend" }
+      ]
+    };
+  },
+
+  friendFollows: function() {
+    return {
+      username: 'friend',
+      follows: [
+        { id: 123, username: "tester" },
+        { id: 4,   username: "follow4" }
       ]
     };
   },
