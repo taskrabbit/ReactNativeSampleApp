@@ -40,7 +40,10 @@ describe("Posts", () => {
   it("should create a new post", function* (driver, done) {
     var list = fixtures.home();
     server.get("/api/posts/tester", list);
-    server.post("/api/posts", {id: 100, content: 'new post here', username: 'tester' });
+    server.post("/api/posts",
+      {id: 100, content: 'new post here', username: 'tester'}, // return this content
+      {content: 'new post here'}                               // expect this content
+    );
 
     yield bootstrap().login().launch(driver);
 
