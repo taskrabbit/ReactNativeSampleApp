@@ -14,6 +14,8 @@ var {
   ListView
 } = React;
 
+var cssVar = require('../Lib/cssVar');
+
 var CurrentUserStore   = require('../Stores/CurrentUserStore');
 var NavigationListener = require('../Mixins/NavigationListener');
 var NavBarHelper       = require('../Mixins/NavBarHelper');
@@ -22,6 +24,8 @@ var Loading          = require('../Screens/Loading');
 var Text             = require('../Components/Text');
 var SegmentedControl = require('../Components/SegmentedControl');
 var SimpleList       = require('../Components/SimpleList');
+
+var AppActions = require('../Actions/AppActions');
 
 var ListHelper = {
   mixins: [NavigationListener, NavBarHelper],
@@ -70,6 +74,18 @@ var ListHelper = {
     return this.username;
   },
 
+  getParseTitle: function() {
+    if (this.props.listProps.parse === true) {
+      return [
+        {type: 'url', style: styles.url, onPress: (url) => AppActions.launchExternalURL(url) },
+        {pattern: /@(\w+)/, style: styles.mention, onPress: (mention) => AppActions.launchRelativeItem(this.props.currentRoute, {replacePath: `follows/${mention.substring(1).toLowerCase()}/posts`}) },
+        {pattern: /#(\w+)/, style: styles.hashtag},
+      ]
+    }
+
+    return null;
+  },
+
   renderItems: function() {
     return (
       <SimpleList
@@ -78,6 +94,7 @@ var ListHelper = {
         getItemProps={this.getItemProps}
         items={this.state.items}
         reloadList={this.reloadList}
+        parseTitle={this.getParseTitle()}
         {...this.props.listProps}
       />
     );
@@ -130,6 +147,20 @@ var ListHelper = {
 var styles = StyleSheet.create({
   flex: {
     flex: 1
+  },
+
+  hashtag: {
+    color: cssVar('blue50'),
+    fontStyle: 'italic',
+  },
+
+  mention: {
+    color: cssVar('blue50'),
+  },
+
+  url: {
+    color: cssVar('blue50'),
+    textDecorationLine: 'underline',
   }
 });
 

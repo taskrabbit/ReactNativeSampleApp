@@ -16,6 +16,7 @@ var SimpleList = React.createClass({
     if (this.props.navigator)    passAlong.navigator    = this.props.navigator;
     if (this.props.nextIcon)     passAlong.nextIcon     = this.props.nextIcon;
     if (this.props.noTap)        passAlong.noTap        = this.props.noTap;
+    if (this.props.parseTitle)   passAlong.parseTitle   = this.props.parseTitle;
 
     if (this.props.getItemProps) {
       // swtich it out
