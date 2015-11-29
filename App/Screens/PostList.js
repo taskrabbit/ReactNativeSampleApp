@@ -12,7 +12,8 @@ var PostList = React.createClass({
     return {
       store: PostListStore,
       listProps: {
-        noTap: true
+        noTap: true,
+        parse: true,
       },
       segment: {
         items: [

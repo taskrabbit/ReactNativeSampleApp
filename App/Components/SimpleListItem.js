@@ -5,6 +5,8 @@ var {
   TouchableHighlight
 } = React;
 
+var ParsedText = require('react-native-parsed-text');
+
 var cssVar = require('../Lib/cssVar');
 
 var Text       = require('../Components/Text');
@@ -17,6 +19,16 @@ var SimpleListItem = React.createClass({
 
   renderTitle: function() {
     if (!this.props.title) return null;
+    if (this.props.parseTitle) {
+      return (
+        <ParsedText
+          parse={this.props.parseTitle}
+          style={styles.title}
+        >
+          {this.props.title}
+        </ParsedText>
+      )
+    }
 
     return (
       <Text style={styles.title}>
