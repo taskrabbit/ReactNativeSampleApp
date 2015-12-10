@@ -92,7 +92,8 @@ var NavigationBar = {
       // simple pop
       this.refs.navigator.pop();
     }
-    else if(stacksEqual(current, next, next.length-1)) {
+    else if(current.length === next.length
+          && stacksEqual(current, next, next.length-1)) {
       // switching out last one
       if (currentRoute.component === nextRoute.component
           && this._currentComponent
