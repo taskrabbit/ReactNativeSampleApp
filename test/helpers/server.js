@@ -1,3 +1,5 @@
+require('babel-polyfill');
+
 var _          = require('underscore');
 var colors     = require('colors');
 var koa        = require('koa');

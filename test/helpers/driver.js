@@ -19,7 +19,7 @@ var server = {
 
 var loadedAppium = null;
 
-appiumPromise = new Promise(function (resolve, reject) {
+var appiumPromise = new Promise(function (resolve, reject) {
   appiumProc.stdout.on('data', function (data) {
     if (loadedAppium) return;
     console.log('APPIUM: ' + data);
