@@ -20,7 +20,7 @@ There is a server that the app hits for data. The data is only stored in memory,
 
 In the `server` directory
 
-* Install nvm and node-4.0.0
+* Install nvm and node-4.2.3
 * Install dependencies: `npm install`
 * Run it: `npm start`
 

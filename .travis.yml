@@ -13,7 +13,7 @@ before_install:
   - which nvm || curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash
   - export NVM_DIR=~/.nvm
   - source ~/.nvm/nvm.sh --install
-  - nvm install 4.0
+  - nvm install 4.2.3
   - brew update
   - brew reinstall xctool
   - brew reinstall watchman
