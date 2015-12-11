@@ -381,7 +381,7 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				DF35A678DD70FEB3ABFDEA69 /* Copy Pods Resources */,
-				D32D268A1BD4AFC8007753B2 /* ShellScript */,
+				D32D268A1BD4AFC8007753B2 /* Bundle React Native code and images */,
 				B91827D077A8C198AC93F32E /* Embed Pods Frameworks */,
 			);
 			buildRules = (
@@ -601,18 +601,19 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		D32D268A1BD4AFC8007753B2 /* ShellScript */ = {
+		D32D268A1BD4AFC8007753B2 /* Bundle React Native code and images */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Bundle React Native code and images";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ \"${PLATFORM_NAME}\" != \"iphonesimulator\" ]; then\n    source ~/.nvm/nvm.sh\n    cd ${PROJECT_DIR}/.. && react-native bundle --minify\nfi";
+			shellScript = "if [ \"${CONFIGURATION}\" == \"Debug\" ]\nthen\nBUNDLECONFIG=Debug\nelse\nBUNDLECONFIG=Release\nrm -rf $TMPDIR/react-*\nfi\n\nCONFIGURATION=$BUNDLECONFIG ../node_modules/react-native/packager/react-native-xcode.sh";
 		};
 		DF35A678DD70FEB3ABFDEA69 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;

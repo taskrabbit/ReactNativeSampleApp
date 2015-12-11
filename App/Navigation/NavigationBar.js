@@ -8,7 +8,7 @@ var {
 
 var cssVar = require('../Lib/cssVar');
 
-var NavigatorNavigationBarStyles = require('NavigatorNavigationBarStyles');
+var NavigatorNavigationBarStyles = require('../Platform/NavigatorNavigationBarStyles');
 var NavigationBarRouteMapper     = require('../Navigation/NavigationBarRouteMapper');
 
 var stacksEqual = function(one, two, length) {
