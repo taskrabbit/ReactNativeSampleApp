@@ -34,6 +34,7 @@ Compiler.prototype.calculateDirectories = function() {
     case 'test':
       this.configuration = "Debug";
       this.iosSdk = "iphonesimulator";
+      this.iosDestination = "platform=iOS Simulator,name=iPhone 6s,OS=latest"
       break;
     case 'staging':
       this.configuration = "Staging";
@@ -93,6 +94,7 @@ Compiler.prototype.buildIos = function() {
   to_run += " -workspace " + this.platformDirectory + "/Sample.xcworkspace";
   to_run += " -scheme \"" + scheme + "\"";
   to_run += " -sdk " + this.iosSdk;
+  if (this.iosDestination) to_run += " -destination '" + this.iosDestination + "'";
   to_run += " -configuration " + this.configuration;
   to_run += " OBJROOT=" + this.buildDirectory;
   to_run += " SYMROOT=" + this.buildDirectory;
