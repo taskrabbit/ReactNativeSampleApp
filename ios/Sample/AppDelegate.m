@@ -31,7 +31,7 @@
    * on the same Wi-Fi network.
    */
   
-//  jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle?platform=ios"];
+//  jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle?platform=ios&dev=true"];
 
   /**
    * OPTION 2
@@ -47,22 +47,23 @@
 
   
 #ifdef TEST_ENVIRONMENT
-    jsCodeLocation = [NSURL URLWithString:@"http://localhost:9091/index.ios.bundle?platform=ios"];
+  // different port
+  jsCodeLocation = [NSURL URLWithString:@"http://localhost:9091/index.ios.bundle?platform=ios&dev=true"];
 #else
-  #if TARGET_IPHONE_SIMULATOR
-    jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle?platform=ios"];
-  #else
-    jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
-  #endif
+#if TARGET_IPHONE_SIMULATOR
+  jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle?platform=ios&dev=true"];
+#else
+  jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
+#endif
 #endif
   
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                                       moduleName:@"Sample"
                                                initialProperties:nil
                                                    launchOptions:launchOptions];
-  
+
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-  UIViewController *rootViewController = [[UIViewController alloc] init];
+  UIViewController *rootViewController = [UIViewController new];
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
