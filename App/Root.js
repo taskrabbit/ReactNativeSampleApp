@@ -6,6 +6,7 @@ var {
 var assign = require('object-assign');
 
 var Routes     = require('./Navigation/Routes');
+
 var Launch     = require('./Root/Launch');
 var LoggedOut  = require('./Root/LoggedOut');
 var LoggedIn   = require('./Root/LoggedIn');
@@ -15,6 +16,8 @@ var TestRunner = require('./Root/TestRunner');
 var AppActions         = require('./Actions/AppActions');
 var CurrentUserStore   = require('./Stores/CurrentUserStore');
 var EnvironmentStore   = require('./Stores/EnvironmentStore');
+var DebugStore         = require('./Stores/DebugStore');
+
 var DispatcherListener = require('./Mixins/DispatcherListener');
 
 function getUserState() {
@@ -29,24 +32,31 @@ function getEnvironmentState() {
   };
 };
 
+function getDebugState() {
+  return { savedPath: DebugStore.get().currentRoutePath };
+}
+
 var Root = React.createClass({
   mixins: [DispatcherListener],
 
   getInitialState: function() {
     return assign({},
                 getUserState(),
-                getEnvironmentState()
+                getEnvironmentState(),
+                getDebugState()
     );
   },
 
   onUserChange: function() {
-    var state = getUserState();
-    state.routeStack = Routes.parse(null, state.user.isLoggedIn(), true);
-    this.setState(state);
+    this.setState(getUserState());
   },
 
   onEnvChange: function() {
     this.setState(getEnvironmentState());
+  },
+
+  onDebugChange: function() {
+    this.setState(getDebugState());
   },
 
   dispatchAction: function(action) {
@@ -56,20 +66,35 @@ var Root = React.createClass({
   componentDidMount: function() {
     CurrentUserStore.addChangeListener(this.onUserChange);
     EnvironmentStore.addChangeListener(this.onEnvChange);
+    DebugStore.addChangeListener(this.onDebugChange);
     AppActions.appLaunched();
   },
 
   componentWillUnmount: function() {
+    DebugStore.removeChangeListener(this.onDebugChange);
     EnvironmentStore.removeChangeListener(this.onEnvChange);
     CurrentUserStore.removeChangeListener(this.onUserChange);
   },
 
+  getSavedPath: function() {
+    if (!this.state.environment)                { return null; }
+    if (!this.state.environment.data.simulator) { return null; }
+
+    return this.state.savedPath;
+  },
+
   renderContent: function() {
     if (this.state.routeUnderTest) return null;
-    
-    var routeStack = this.state.routeStack;
+
+    var routeStack = Routes.parse(this.getSavedPath(), this.state.user.isLoggedIn(), true);
+
     if(this.state.user.isLoggedIn()) {
-      return(<LoggedIn ref="current" routeStack={routeStack} />);
+      return (
+        <LoggedIn
+          ref="current"
+          routeStack={routeStack}
+        />
+      );
     }
     else {
       return(<LoggedOut ref="current" routeStack={routeStack} />);
