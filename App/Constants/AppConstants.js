@@ -13,4 +13,5 @@ module.exports = keyMirror({
   POST_ADDED: null,
   FOLLOW_LIST_UPDATED: null,
   TEST_COMPONENT_ROUTE: null,
+  DEBUG_CURRENT_ROUTE_PATH_KEY: null,
 });
