@@ -29,7 +29,7 @@ Compiler.prototype.calculateDirectories = function() {
   this.platformDirectory = this.rootDirectory + '/' + this.platform;
   this.appDirectory      = this.rootDirectory + '/testbuild/' + this.environment + '_' + this.platform;
   this.buildDirectory    = this.appDirectory  + '/build';
-  
+
   switch(this.environment) {
     case 'test':
       this.configuration = "Debug";
@@ -105,7 +105,7 @@ Compiler.prototype.buildIos = function() {
 
 Compiler.prototype.build = function() {
   this.run('mkdir -p ' + this.buildDirectory);
-  
+
   if (this.environment !== 'test') {
     this.buildJavascript();
   }
