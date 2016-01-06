@@ -10,9 +10,10 @@ const EnvironmentManager = React.NativeModules.EnvironmentManager;
 const CHANGE_EVENT                 = 'change';
 const DEBUG_CURRENT_ROUTE_PATH_KEY = AppConstants.DEBUG_CURRENT_ROUTE_PATH_KEY;
 
-var _values = {};
+var _values = null;
 
 function setCurrentRoutePath(routePath) {
+  _values = _values || {};
   _values.currentRoutePath = routePath;
 }
 
@@ -50,7 +51,6 @@ Dispatcher.register(function(action) {
       if (action.routePath) {
         LocalKeyStore.setKey(DEBUG_CURRENT_ROUTE_PATH_KEY, action.routePath);
         setCurrentRoutePath(action.routePath);
-        SingletonStore.emitChange();
       }
       break;
     case AppConstants.LOGOUT_REQUESTED:
