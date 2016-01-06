@@ -33,7 +33,9 @@ function getEnvironmentState() {
 };
 
 function getDebugState() {
-  return { savedPath: DebugStore.get().currentRoutePath };
+  return {
+    debug: DebugStore.get()
+  };
 }
 
 var Root = React.createClass({
@@ -48,7 +50,10 @@ var Root = React.createClass({
   },
 
   onUserChange: function() {
-    this.setState(getUserState());
+    var state = getUserState();
+    // reset the route stack on user change.
+    state.routeStack = null;
+    this.setState(state);
   },
 
   onEnvChange: function() {
@@ -76,17 +81,27 @@ var Root = React.createClass({
     CurrentUserStore.removeChangeListener(this.onUserChange);
   },
 
-  getSavedPath: function() {
-    if (!this.state.environment)                { return null; }
-    if (!this.state.environment.data.simulator) { return null; }
+  getSavedCurrentRoutePath: function() {
+    if (!this.state.environment.data.simulator)      { return null; }
+    if (this.state.environment.data.name === 'test') { return null; }
 
-    return this.state.savedPath;
+    return this.state.debug.currentRoutePath;
+  },
+
+  getDefaultRouteStack: function() {
+    return Routes.parse(null, this.state.user.isLoggedIn(), true);
   },
 
   renderContent: function() {
     if (this.state.routeUnderTest) return null;
 
-    var routeStack = Routes.parse(this.getSavedPath(), this.state.user.isLoggedIn(), true);
+    var routeStack = this.state.routeStack;
+    if (!routeStack && this.getSavedCurrentRoutePath()) {
+      routeStack = Routes.parse(this.getSavedCurrentRoutePath(), this.state.user.isLoggedIn(), true);
+    }
+    if (!routeStack) {
+      routeStack = this.getDefaultRouteStack();
+    }
 
     if(this.state.user.isLoggedIn()) {
       return (
@@ -103,7 +118,7 @@ var Root = React.createClass({
 
   render: function() {
     // need to fetch current user and environment before launching
-    if (!this.state.user || !this.state.environment) {
+    if (!this.state.user || !this.state.environment || !this.state.debug) {
       return(<Launch ref="current" />);
     }
     else if (this.state.environment.data.name === 'test') {
