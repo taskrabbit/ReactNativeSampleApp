@@ -29,11 +29,12 @@ Compiler.prototype.calculateDirectories = function() {
   this.platformDirectory = this.rootDirectory + '/' + this.platform;
   this.appDirectory      = this.rootDirectory + '/testbuild/' + this.environment + '_' + this.platform;
   this.buildDirectory    = this.appDirectory  + '/build';
-  
+
   switch(this.environment) {
     case 'test':
       this.configuration = "Debug";
       this.iosSdk = "iphonesimulator";
+      this.iosDestination = "platform=iOS Simulator,name=iPhone 6s,OS=latest"
       break;
     case 'staging':
       this.configuration = "Staging";
@@ -93,6 +94,7 @@ Compiler.prototype.buildIos = function() {
   to_run += " -workspace " + this.platformDirectory + "/Sample.xcworkspace";
   to_run += " -scheme \"" + scheme + "\"";
   to_run += " -sdk " + this.iosSdk;
+  if (this.iosDestination) to_run += " -destination '" + this.iosDestination + "'";
   to_run += " -configuration " + this.configuration;
   to_run += " OBJROOT=" + this.buildDirectory;
   to_run += " SYMROOT=" + this.buildDirectory;
@@ -103,7 +105,7 @@ Compiler.prototype.buildIos = function() {
 
 Compiler.prototype.build = function() {
   this.run('mkdir -p ' + this.buildDirectory);
-  
+
   if (this.environment !== 'test') {
     this.buildJavascript();
   }
