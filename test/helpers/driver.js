@@ -55,10 +55,10 @@ var UNLIMITED = 100000;
 
 var caps = {
   browserName: '',
-  'appium-version': '1.4.8',
+  'appium-version': '1.5.1',
   platformName: 'iOS',
-  platformVersion: '9.0',
-  deviceName: 'iPhone 6',
+  platformVersion: '9.3',
+  deviceName: 'iPhone 6s',
   autoLaunch: 'true',
   newCommandTimeout: UNLIMITED,
   app: process.cwd() + "/testbuild/test_ios/sample_ios.zip"
