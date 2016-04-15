@@ -30,7 +30,7 @@ It has sample data in the `models.js` file. For example, there is a user bleonar
 
 The integration tests are run using [Appium](http://appium.io/).
 
-There is also an [example](https://github.com/taskrabbit/ReactNativeSampleApp/blob/master/.travis.yml) of to to run it on Travis CI: [![Build Status](https://travis-ci.org/taskrabbit/ReactNativeSampleApp.svg?branch=master)](https://travis-ci.org/taskrabbit/ReactNativeSampleApp)
+There is also an [example](https://github.com/taskrabbit/ReactNativeSampleApp/blob/master/.travis.yml) of how to run it on Travis CI: [![Build Status](https://travis-ci.org/taskrabbit/ReactNativeSampleApp.svg?branch=master)](https://travis-ci.org/taskrabbit/ReactNativeSampleApp)
 
 To run tests:
 
