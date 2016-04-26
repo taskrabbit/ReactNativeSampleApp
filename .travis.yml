@@ -10,8 +10,8 @@ cache:
     - ~/.nvm
 
 before_install:
-  - which nvm || curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash
   - export NVM_DIR=~/.nvm
+  - which nvm || curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash
   - source ~/.nvm/nvm.sh --install
   - nvm install 4.2.3
   - brew update
