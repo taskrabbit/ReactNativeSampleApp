@@ -1,11 +1,12 @@
 var React = require('react-native');
 var {
+  StatusBar,
   StatusBarIOS
 } = React;
 
-var StatusBar = {
+var _StatusBar = {
   setNetworkActive: function(active) {
-    StatusBarIOS.setNetworkActivityIndicatorVisible(active);
+    StatusBar.setNetworkActivityIndicatorVisible(active);
   },
 
   setHidden: function(hidden) {
@@ -13,4 +14,4 @@ var StatusBar = {
   }
 };
 
-module.exports = StatusBar;
+module.exports = _StatusBar;
