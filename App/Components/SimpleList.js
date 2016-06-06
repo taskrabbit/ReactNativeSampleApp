@@ -3,7 +3,7 @@ import {
   ListView
 } from 'react-native';
 
-import RefreshableListView from 'react-native-refreshable-listview';
+import RefreshableListView from '../Platform/RefreshableListView';
 
 import SimpleListItem from '../Components/SimpleListItem';
 
