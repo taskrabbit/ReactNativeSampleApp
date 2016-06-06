@@ -16,7 +16,7 @@ var _Text = React.createClass({
   },
   render() {
     return (
-      <React.Text
+      <Text
         {...this.props}
         ref="text"
         style={[styles.text, this.props.style || {}]}
