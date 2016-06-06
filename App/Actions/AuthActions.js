@@ -26,4 +26,4 @@ var AuthActions = {
   }
 };
 
-module.exports = AuthActions;
+export default AuthActions;

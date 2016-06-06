@@ -52,4 +52,4 @@ var styles = StyleSheet.create({
   },
 });
 
-module.exports = Settings;
+export default Settings;

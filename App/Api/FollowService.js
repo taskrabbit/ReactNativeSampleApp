@@ -29,4 +29,4 @@ var FolllowService = {
   }
 };
 
-module.exports = FolllowService;
+export default FolllowService;

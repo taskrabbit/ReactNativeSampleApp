@@ -8,4 +8,4 @@ var TestComponents = {
   }
 };
 
-module.exports = TestComponents;
+export default TestComponents;

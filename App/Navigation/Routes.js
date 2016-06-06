@@ -135,7 +135,7 @@ var LoggedOut = {
   }
 };
 
-module.exports = {
+export default {
   parse: function(str, loggedIn, defaulted) {
     var parent = loggedIn ? LoggedIn : LoggedOut;
     var found = Router.parse(str, parent, defaulted);

@@ -33,4 +33,4 @@ var styles = StyleSheet.create({
   }
 });
 
-module.exports = _Text;
+export default _Text;

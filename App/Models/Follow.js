@@ -13,4 +13,4 @@ Model.prototype.setAttributes = function(options) {
   });
 };
 
-module.exports = Model;
+export default Model;

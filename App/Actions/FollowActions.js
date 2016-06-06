@@ -18,4 +18,4 @@ var FollowActions = {
   }
 };
 
-module.exports = FollowActions;
+export default FollowActions;

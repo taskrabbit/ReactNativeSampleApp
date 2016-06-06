@@ -39,4 +39,4 @@ var NavigationListener = {
   }
 };
 
-module.exports = NavigationListener;
+export default NavigationListener;

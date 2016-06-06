@@ -22,4 +22,4 @@ Model.prototype.isLoggedIn = function() {
   return !!this.token;
 };
 
-module.exports = Model;
+export default Model;

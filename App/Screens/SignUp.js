@@ -25,4 +25,4 @@ var SignUp = React.createClass({
   },
 });
 
-module.exports = SignUp;
+export default SignUp;

@@ -164,4 +164,4 @@ var styles = StyleSheet.create({
   },
 });
 
-module.exports = AuthHelper;
+export default AuthHelper;

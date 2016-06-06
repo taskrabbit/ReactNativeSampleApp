@@ -59,4 +59,4 @@ var FollowList = React.createClass({
 
 
 
-module.exports = FollowList;
+export default FollowList;

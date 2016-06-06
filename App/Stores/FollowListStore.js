@@ -50,4 +50,4 @@ Dispatcher.register(function(action) {
   }
 });
 
-module.exports = ModelStore; 
+export default ModelStore; 

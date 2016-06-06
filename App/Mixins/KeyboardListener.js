@@ -36,4 +36,4 @@ var KeyboardListener = {
   },
 };
 
-module.exports = KeyboardListener;
+export default KeyboardListener;

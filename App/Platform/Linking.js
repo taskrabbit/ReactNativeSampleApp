@@ -10,4 +10,4 @@ var Linking = {
   }
 };
 
-module.exports = Linking;
+export default Linking;

@@ -29,4 +29,4 @@ var UserService = {
   }
 };
 
-module.exports = UserService;
+export default UserService;

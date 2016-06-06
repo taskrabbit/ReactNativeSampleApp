@@ -14,4 +14,4 @@ var _StatusBar = {
   }
 };
 
-module.exports = _StatusBar;
+export default _StatusBar;

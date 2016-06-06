@@ -44,4 +44,4 @@ var LocalKeyStore = {
   },
 };
 
-module.exports = LocalKeyStore;
+export default LocalKeyStore;

@@ -42,4 +42,4 @@ var Launcher = {
   }
 };
 
-module.exports = Launcher;
+export default Launcher;

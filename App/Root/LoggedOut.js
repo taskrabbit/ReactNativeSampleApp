@@ -10,4 +10,4 @@ var LoggedOut = React.createClass({
   },
 });
 
-module.exports = LoggedOut;
+export default LoggedOut;

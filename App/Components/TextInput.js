@@ -40,4 +40,4 @@ var styles = React.StyleSheet.create({
   }
 });
 
-module.exports = TextInput;
+export default TextInput;

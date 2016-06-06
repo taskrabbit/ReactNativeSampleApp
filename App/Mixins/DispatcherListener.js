@@ -33,4 +33,4 @@ var DispatcherListener = {
   },
 };
 
-module.exports = DispatcherListener;
+export default DispatcherListener;

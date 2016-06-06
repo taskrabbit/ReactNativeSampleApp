@@ -48,4 +48,4 @@ var styles = StyleSheet.create({
   }
 });
 
-module.exports = NavigationTitle;
+export default NavigationTitle;

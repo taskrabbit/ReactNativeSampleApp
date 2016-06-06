@@ -59,4 +59,4 @@ var styles = StyleSheet.create({
   }
 });
 
-module.exports = Loading;
+export default Loading;

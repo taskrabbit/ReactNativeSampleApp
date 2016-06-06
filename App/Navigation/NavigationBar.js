@@ -161,4 +161,4 @@ var styles = StyleSheet.create({
 });
 
 
-module.exports = NavigationBar;
+export default NavigationBar;

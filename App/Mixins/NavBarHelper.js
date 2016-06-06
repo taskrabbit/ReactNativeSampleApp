@@ -42,4 +42,4 @@ var NavBarHelper = {
   },
 };
 
-module.exports = NavBarHelper;
+export default NavBarHelper;

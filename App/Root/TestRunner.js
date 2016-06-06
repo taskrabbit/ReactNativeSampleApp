@@ -133,4 +133,4 @@ var styles = StyleSheet.create({
   }
 });
 
-module.exports = TestRunner;
+export default TestRunner;

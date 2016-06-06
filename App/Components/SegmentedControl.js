@@ -116,4 +116,4 @@ var styles = StyleSheet.create({
   }
 });
 
-module.exports = SegmentedControl;
+export default SegmentedControl;

@@ -40,4 +40,4 @@ var SimpleList = React.createClass({
   }
 });
 
-module.exports = SimpleList;
+export default SimpleList;

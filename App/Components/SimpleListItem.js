@@ -111,4 +111,4 @@ var styles = StyleSheet.create({
   }
 });
 
-module.exports = SimpleListItem;
+export default SimpleListItem;

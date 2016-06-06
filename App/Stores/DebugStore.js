@@ -64,4 +64,4 @@ Dispatcher.register(function(action) {
   }
 });
 
-module.exports = SingletonStore;
+export default SingletonStore;

@@ -26,4 +26,4 @@ class NavigationBarRouteMapper {
 
 }
 
-module.exports = NavigationBarRouteMapper;
+export default NavigationBarRouteMapper;

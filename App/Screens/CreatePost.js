@@ -76,4 +76,4 @@ var styles = StyleSheet.create({
   }
 });
 
-module.exports = CreatePost;
+export default CreatePost;

@@ -46,4 +46,4 @@ Model.prototype.getLocale = function() {
   return this.data.locale;
 };
 
-module.exports = Model;
+export default Model;

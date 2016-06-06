@@ -9,4 +9,4 @@ var cssVar = function(/*string*/ key) /*string*/ {
   return CSSVarConfig[key];
 };
 
-module.exports = cssVar;
+export default cssVar;

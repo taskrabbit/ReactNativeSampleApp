@@ -135,4 +135,4 @@ var Root = React.createClass({
   }
 });
 
-module.exports = Root;
+export default Root;

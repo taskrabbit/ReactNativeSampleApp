@@ -37,4 +37,4 @@ var PostService = {
   },
 };
 
-module.exports = PostService;
+export default PostService;
