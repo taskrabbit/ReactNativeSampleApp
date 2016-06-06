@@ -1,4 +1,4 @@
-var client = require('../Api/HTTPClient')
+import client from '../Api/HTTPClient';
 
 var PostService = {
   parsePost: function(response) {

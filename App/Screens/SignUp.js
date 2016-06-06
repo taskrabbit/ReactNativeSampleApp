@@ -1,7 +1,7 @@
-var React = require('react-native');
+import React from 'react';
 
-var AuthHelper  = require('../Mixins/AuthHelper');
-var AuthActions = require('../Actions/AuthActions');
+import AuthHelper  from '../Mixins/AuthHelper';
+import AuthActions from '../Actions/AuthActions';
 
 var SignUp = React.createClass({
   mixins: [AuthHelper],

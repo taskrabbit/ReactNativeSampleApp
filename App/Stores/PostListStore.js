@@ -1,9 +1,9 @@
-var EventEmitter = require('events').EventEmitter;
-var assign = require('object-assign');
+import {EventEmitter} from 'events';
+import assign from 'object-assign';
 
-var Post         = require('../Models/Post');
-var Dispatcher   = require('../Dispatcher');
-var AppConstants = require('../Constants/AppConstants');
+import Post         from '../Models/Post';
+import Dispatcher   from '../Dispatcher';
+import AppConstants from '../Constants/AppConstants';
 
 var CHANGE_EVENT = 'change';
 

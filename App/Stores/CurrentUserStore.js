@@ -1,11 +1,11 @@
-var EventEmitter = require('events').EventEmitter;
-var assign   = require('object-assign');
-var Keychain = require('react-native-keychain');
+import {EventEmitter} from 'events';
+import assign   from 'object-assign';
+import Keychain from 'react-native-keychain';
 
-var CurrentUser    = require('../Models/CurrentUser');
-var LocalKeyStore  = require('../Stores/LocalKeyStore');
-var Dispatcher     = require('../Dispatcher');
-var AppConstants   = require('../Constants/AppConstants');
+import CurrentUser    from '../Models/CurrentUser';
+import LocalKeyStore  from '../Stores/LocalKeyStore';
+import Dispatcher     from '../Dispatcher';
+import AppConstants   from '../Constants/AppConstants';
 
 var CHANGE_EVENT     = 'change';
 var LOCAL_STORE_KEY  = 'CurrentUser';

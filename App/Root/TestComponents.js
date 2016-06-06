@@ -1,5 +1,5 @@
 var components = {
-  'Components/SimpleListItem': require("../Components/SimpleListItem")
+  'Components/SimpleListItem': require("../Components/SimpleListItem").default
 };
 
 var TestComponents = {

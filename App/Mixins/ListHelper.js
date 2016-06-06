@@ -7,21 +7,21 @@
 // required: store, currentRoute
 // optional: listProps, segment
 
-var React = require('react-native');
-var {
+import React from 'react';
+import {
   View,
   StyleSheet,
   ListView
-} = React;
+} from 'react-native';
 
-var CurrentUserStore   = require('../Stores/CurrentUserStore');
-var NavigationListener = require('../Mixins/NavigationListener');
-var NavBarHelper       = require('../Mixins/NavBarHelper');
+import CurrentUserStore   from '../Stores/CurrentUserStore';
+import NavigationListener from '../Mixins/NavigationListener';
+import NavBarHelper       from '../Mixins/NavBarHelper';
 
-var Loading          = require('../Screens/Loading');
-var Text             = require('../Components/Text');
-var SegmentedControl = require('../Components/SegmentedControl');
-var SimpleList       = require('../Components/SimpleList');
+import Loading          from '../Screens/Loading';
+import Text             from '../Components/Text';
+import SegmentedControl from '../Components/SegmentedControl';
+import SimpleList       from '../Components/SimpleList';
 
 var ListHelper = {
   mixins: [NavigationListener, NavBarHelper],

@@ -1,16 +1,16 @@
-var React  = require('react-native');
-var {
+import React from 'react';
+import {
   View,
   StyleSheet,
   Text
-} = React;
+} from 'react-native';
 
-var cssVar = require('../Lib/cssVar');
+import cssVar from '../Lib/cssVar';
 
-var SimpleList   = require('../Components/SimpleList');
-var AppConstants = require('../Constants/AppConstants');
+import SimpleList   from '../Components/SimpleList';
+import AppConstants from '../Constants/AppConstants';
 
-var EnvironmentStore = require('../Stores/EnvironmentStore');
+import EnvironmentStore from '../Stores/EnvironmentStore';
 
 function getListState() {
   var list = [];

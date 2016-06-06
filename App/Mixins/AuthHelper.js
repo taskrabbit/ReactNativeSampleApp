@@ -1,19 +1,19 @@
-var React = require('react-native');
-var {
+import React from 'react';
+import {
   View,
   StyleSheet,
   PixelRatio,
   TouchableWithoutFeedback
-} = React;
+} from 'react-native';
 
-var cssVar = require('../Lib/cssVar');
+import cssVar from '../Lib/cssVar';
 
-var AppActions = require('../Actions/AppActions');
-var Text       = require('../Components/Text');
-var Button     = require('../Components/Button');
-var TextInput  = require('../Components/TextInput');
+import AppActions from '../Actions/AppActions';
+import Text       from '../Components/Text';
+import Button     from '../Components/Button';
+import TextInput  from '../Components/TextInput';
 
-var EnvironmentStore = require('../Stores/EnvironmentStore');
+import EnvironmentStore from '../Stores/EnvironmentStore';
 
 var AuthHelper = {
 

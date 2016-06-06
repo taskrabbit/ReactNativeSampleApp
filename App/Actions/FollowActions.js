@@ -1,6 +1,6 @@
-var Dispatcher    = require('../Dispatcher');
-var AppConstants  = require('../Constants/AppConstants');
-var FollowService = require('../Api/FollowService');
+import Dispatcher    from '../Dispatcher';
+import AppConstants  from '../Constants/AppConstants';
+import FollowService from '../Api/FollowService';
 
 var FollowActions = {
 

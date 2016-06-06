@@ -1,5 +1,5 @@
-var assign = require('../Lib/assignDefined');
-var jsVersion = require('../jsVersion');
+import assign from '../Lib/assignDefined';
+import jsVersion from '../jsVersion';
 
 var Model = function(options) {
   this.data = {};

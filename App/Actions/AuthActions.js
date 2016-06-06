@@ -1,6 +1,6 @@
-var Dispatcher   = require('../Dispatcher');
-var AppConstants = require('../Constants/AppConstants');
-var AuthService  = require('../Api/AuthService');
+import Dispatcher   from '../Dispatcher';
+import AppConstants from '../Constants/AppConstants';
+import AuthService  from '../Api/AuthService';
 
 var AuthActions = {
   authCallback: function(callback) {

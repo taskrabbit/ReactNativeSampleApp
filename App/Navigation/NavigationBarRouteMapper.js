@@ -1,11 +1,11 @@
-var React = require('react-native');
+import React from 'react';
 
-var cssVar = require('../Lib/cssVar');
+import cssVar from '../Lib/cssVar';
 
-var Text             = require('../Components/Text');
-var AppActions       = require('../Actions/AppActions');
-var NavigationTitle  = require('../Navigation/NavigationTitle');
-var NavigationButton = require('../Navigation/NavigationButton');
+import Text             from '../Components/Text';
+import AppActions       from '../Actions/AppActions';
+import NavigationTitle  from '../Navigation/NavigationTitle';
+import NavigationButton from '../Navigation/NavigationButton';
 
 // Nav sample: https://github.com/facebook/react-native/blob/2b916f3ceffbcb11ed383f958823d221b3feacc6/Examples/UIExplorer/Navigator/NavigationBarSample.js
 class NavigationBarRouteMapper {

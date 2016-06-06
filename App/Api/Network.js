@@ -1,5 +1,5 @@
-var Dispatcher   = require('../Dispatcher');
-var AppConstants = require('../Constants/AppConstants');
+import Dispatcher   from '../Dispatcher';
+import AppConstants from '../Constants/AppConstants';
 
 var _httpCount = 0; // TODO: immutable?
 

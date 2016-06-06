@@ -1,6 +1,6 @@
-var Dispatcher   = require('../Dispatcher');
-var AppConstants = require('../Constants/AppConstants');
-var assign       = require('object-assign');
+import Dispatcher   from '../Dispatcher';
+import AppConstants from '../Constants/AppConstants';
+import assign       from 'object-assign';
 
 var AppActions = {
   appLaunched: function() {

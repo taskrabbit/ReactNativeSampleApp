@@ -1,24 +1,24 @@
-var Router = require("../Navigation/Router");
+import Router from '../Navigation/Router';
 
 var Routes = {
 
   LogIn: function() {
     return {
-      component: require('../Screens/LogIn'),
+      component: require('../Screens/LogIn').default,
       title: 'Log in'
     };
   },
 
   SignUp: function() {
     return {
-      component: require('../Screens/SignUp'),
+      component: require('../Screens/SignUp').default,
       title: 'Sign Up'
     };
   },
 
   PostList: function(username) {
     return {
-      component: require('../Screens/PostList'),
+      component: require('../Screens/PostList').default,
       title: '', // set to name
       passProps: {
         username: username
@@ -28,7 +28,7 @@ var Routes = {
 
   FollowList: function(username) {
     return {
-      component: require('../Screens/FollowList'),
+      component: require('../Screens/FollowList').default,
       title: '', // set to name
       passProps: {
         username: username
@@ -38,14 +38,14 @@ var Routes = {
 
   Settings: function() {
     return {
-      component: require('../Screens/Settings'),
+      component: require('../Screens/Settings').default,
       title: 'Settings'
     };
   },
 
   CreatePost: function() {
     return {
-      component: require('../Screens/CreatePost'),
+      component: require('../Screens/CreatePost').default,
       title: 'New Post',
       navBack: {
         label: 'Cancel'

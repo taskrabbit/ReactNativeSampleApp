@@ -1,24 +1,24 @@
-var React = require('react-native');
-var {
-  View
-} = React;
+import React from 'react';
+import {
+  View,
+} from 'react-native';
 
-var assign = require('object-assign');
+import assign from 'object-assign';
 
-var Routes     = require('./Navigation/Routes');
+import Routes     from './Navigation/Routes';
 
-var Launch     = require('./Root/Launch');
-var LoggedOut  = require('./Root/LoggedOut');
-var LoggedIn   = require('./Root/LoggedIn');
-var Launcher   = require('./Root/Launcher');
-var TestRunner = require('./Root/TestRunner');
+import Launch     from './Root/Launch';
+import LoggedOut  from './Root/LoggedOut';
+import LoggedIn   from './Root/LoggedIn';
+import Launcher   from './Root/Launcher';
+import TestRunner from './Root/TestRunner';
 
-var AppActions         = require('./Actions/AppActions');
-var CurrentUserStore   = require('./Stores/CurrentUserStore');
-var EnvironmentStore   = require('./Stores/EnvironmentStore');
-var DebugStore         = require('./Stores/DebugStore');
+import AppActions         from './Actions/AppActions';
+import CurrentUserStore   from './Stores/CurrentUserStore';
+import EnvironmentStore   from './Stores/EnvironmentStore';
+import DebugStore         from './Stores/DebugStore';
 
-var DispatcherListener = require('./Mixins/DispatcherListener');
+import DispatcherListener from './Mixins/DispatcherListener';
 
 function getUserState() {
   return {

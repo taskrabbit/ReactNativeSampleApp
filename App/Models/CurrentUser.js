@@ -1,4 +1,4 @@
-var assign = require('../Lib/assignDefined');
+import assign from '../Lib/assignDefined';
 
 var Model = function(options, token) {
   this.data = {};

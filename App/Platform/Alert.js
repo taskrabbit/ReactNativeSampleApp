@@ -1,7 +1,7 @@
-var React = require('react-native');
-var {
+import React from 'react';
+import {
   AlertIOS
-} = React;
+} from 'react-native';
 
 var Alert = {
   alert: function(title, message, buttons, type) {

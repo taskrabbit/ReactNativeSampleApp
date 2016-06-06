@@ -1,12 +1,12 @@
-var React = require('react-native');
-var {
+import React from 'react';
+import {
   View,
   StyleSheet
-} = React;
+} from 'react-native';
 
-var Text       = require('../Components/Text');
-var Button     = require('../Components/Button');
-var AppActions = require('../Actions/AppActions');
+import Text       from '../Components/Text';
+import Button     from '../Components/Button';
+import AppActions from '../Actions/AppActions';
 
 var Loading = React.createClass({
   onRetryButton: function() {

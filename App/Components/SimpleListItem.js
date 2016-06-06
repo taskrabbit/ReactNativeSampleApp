@@ -1,14 +1,14 @@
-var React  = require('react-native');
-var {
+import React from 'react';
+import {
   View,
   StyleSheet,
   TouchableHighlight
-} = React;
+} from 'react-native';
 
-var cssVar = require('../Lib/cssVar');
+import cssVar from '../Lib/cssVar';
 
-var Text       = require('../Components/Text');
-var AppActions = require('../Actions/AppActions');
+import Text       from '../Components/Text';
+import AppActions from '../Actions/AppActions';
 
 var SimpleListItem = React.createClass({
   onSelection: function() {

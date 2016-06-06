@@ -1,4 +1,4 @@
-var Dispatcher = require('../Dispatcher');
+import Dispatcher from '../Dispatcher';
 
 var DispatcherListener = {
   unregisterDispatcher: function() {

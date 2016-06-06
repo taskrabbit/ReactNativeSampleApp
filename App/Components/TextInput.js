@@ -1,10 +1,10 @@
-var React = require('react-native')
+import React from 'react';
 
-var {
+import {
   PixelRatio
-} = React;
+} from 'react-native';
 
-var cssVar = require('../Lib/cssVar');
+import cssVar from '../Lib/cssVar';
 
 var TextInput = React.createClass({
   propTypes: React.TextInput.propTypes,

@@ -1,15 +1,15 @@
-var React  = require('react-native');
-var {
+import React from 'react';
+import {
   View,
   StyleSheet
-} = React;
+} from 'react-native';
 
-var cssVar = require('../Lib/cssVar');
+import cssVar from '../Lib/cssVar';
 
-var DispatcherListener = require('../Mixins/DispatcherListener');
-var AppConstants = require('../Constants/AppConstants');
+import DispatcherListener from '../Mixins/DispatcherListener';
+import AppConstants from '../Constants/AppConstants';
 
-var Text = require('../Components/Text');
+import Text from '../Components/Text';
 
 var NavigationTitle = React.createClass({
   mixins: [DispatcherListener],

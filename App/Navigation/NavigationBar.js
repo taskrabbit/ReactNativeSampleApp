@@ -1,15 +1,15 @@
-var React = require('react-native');
-var {
+import React from 'react';
+import {
   Navigator,
   StyleSheet,
   TouchableOpacity,
   View,
-} = React;
+} from 'react-native';
 
-var cssVar = require('../Lib/cssVar');
+import cssVar from '../Lib/cssVar';
 
-var NavigatorNavigationBarStyles = require('../Platform/NavigatorNavigationBarStyles');
-var NavigationBarRouteMapper     = require('../Navigation/NavigationBarRouteMapper');
+import NavigatorNavigationBarStyles from '../Platform/NavigatorNavigationBarStyles';
+import NavigationBarRouteMapper     from '../Navigation/NavigationBarRouteMapper';
 
 var stacksEqual = function(one, two, length) {
   if (one.length < length) return false;

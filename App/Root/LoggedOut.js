@@ -1,6 +1,6 @@
-var React = require('react-native');
+import React from 'react';
 
-var NavigationBar = require('../Navigation/NavigationBar');
+import NavigationBar from '../Navigation/NavigationBar';
 
 var LoggedOut = React.createClass({
   mixins: [NavigationBar],

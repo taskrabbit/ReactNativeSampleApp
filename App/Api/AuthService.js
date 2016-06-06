@@ -1,4 +1,4 @@
-var client = require('../Api/HTTPClient')
+import client from '../Api/HTTPClient';
 
 var UserService = {
   parseAccount: function(response) {

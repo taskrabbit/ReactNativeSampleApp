@@ -1,8 +1,8 @@
-var React = require('react-native');
-var {
+import React from 'react';
+import {
   StatusBar,
   StatusBarIOS
-} = React;
+} from 'react-native';
 
 var _StatusBar = {
   setNetworkActive: function(active) {

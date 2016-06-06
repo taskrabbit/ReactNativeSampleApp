@@ -1,7 +1,7 @@
-var React = require('react-native');
-var {
+import React from 'react';
+import {
   LinkingIOS
-} = React;
+} from 'react-native';
 
 var Linking = {
   openURL: function(url) {

@@ -2,8 +2,8 @@
 // (c) Steven Levithan <stevenlevithan.com>
 // MIT License
 
-var Routes = require('../Navigation/Routes');
-var assign = require('object-assign');
+import Routes from '../Navigation/Routes';
+import assign from 'object-assign';
 
 function parseUri (str) {
   var o   = parseUri.options,
