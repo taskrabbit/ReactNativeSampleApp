@@ -1,7 +1,6 @@
 import React from 'react';
 import {
-  StatusBar,
-  StatusBarIOS
+  StatusBar
 } from 'react-native';
 
 var _StatusBar = {
@@ -10,7 +9,7 @@ var _StatusBar = {
   },
 
   setHidden: function(hidden) {
-    StatusBarIOS.setHidden(hidden);
+    StatusBar.setHidden(hidden);
   }
 };
 
