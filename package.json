@@ -11,6 +11,13 @@
     "install:staging": "PHONE=true TARGET=staging node tasks/compile.js"
   },
   "dependencies": {
+    "babel-cli": "6.4.0",
+    "babel-core": "6.4.0",
+    "babel-eslint": "4.1.7",
+    "babel-polyfill": "6.3.14",
+    "babel-preset-react-native": "1.8.0",
+    "babel-register": "6.3.13",
+    "babel-types": "6.4.1",
     "events": "1.1.0",
     "flux": "2.1.1",
     "invariant": "2.2.0",
