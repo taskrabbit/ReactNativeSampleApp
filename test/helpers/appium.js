@@ -1,3 +1,5 @@
+global.__DEV__ = true;
+
 // #IPROMISE -----------------
 require('colors');
 var chai = require("chai");
