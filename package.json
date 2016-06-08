@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "appium": "1.5.1",
+    "babel-core": "6.4.0",
     "babel-plugin-syntax-async-functions": "^6.5.0",
     "babel-plugin-transform-class-properties": "^6.6.0",
     "babel-plugin-transform-regenerator": "^6.6.5",
