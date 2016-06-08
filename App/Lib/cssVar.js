@@ -1,7 +1,7 @@
 'use strict';
 
-var invariant = require('invariant');
-var CSSVarConfig = require('../Lib/CSSVarConfig');
+import invariant from 'invariant';
+import CSSVarConfig from '../Lib/CSSVarConfig';
 
 var cssVar = function(/*string*/ key) /*string*/ {
   invariant(CSSVarConfig[key], 'invalid css variable ' + key);
@@ -9,4 +9,4 @@ var cssVar = function(/*string*/ key) /*string*/ {
   return CSSVarConfig[key];
 };
 
-module.exports = cssVar;
+export default cssVar;

@@ -1,51 +1,16 @@
-// https://github.com/ide/react-native-button
+import React from 'react';
+import {PropTypes} from 'react';
+import {StyleSheet, TouchableOpacity, View, PixelRatio} from 'react-native';
 
-var React = require('react-native');
-var {
-  PropTypes,
-  StyleSheet,
-  TouchableOpacity,
-  View,
-  PixelRatio
-} = React;
+import cssVar from '../Lib/cssVar';
+import _ from 'underscore';
 
-var cssVar = require('../Lib/cssVar');
+import Text from '../Components/Text';
 
-var Text = require('../Components/Text');
 
-function coalesceNonElementChildren(children, coalesceNodes) {
-  var coalescedChildren = [];
+const systemButtonOpacity = 0.2;
 
-  var contiguousNonElements = [];
-  React.Children.forEach(children, (child) => {
-    if (!React.isValidElement(child)) {
-      contiguousNonElements.push(child);
-      return;
-    }
-
-    if (contiguousNonElements.length) {
-      var coalescedChild = coalesceNodes(contiguousNonElements, coalescedChildren.length);
-      coalescedChildren.push(
-        coalesceNodes(contiguousNonElements, coalescedChildren.length)
-      );
-      contiguousNonElements = [];
-    }
-
-    coalescedChildren.push(child);
-  });
-
-  if (contiguousNonElements.length) {
-    coalescedChildren.push(
-      coalesceNodes(contiguousNonElements, coalescedChildren.length)
-    );
-  }
-
-  return coalescedChildren;
-}
-
-var systemButtonOpacity = 0.2;
-
-var Button = React.createClass({
+const Button = React.createClass({
   propTypes: {
     ...TouchableOpacity.propTypes,
     disabled: PropTypes.bool,
@@ -53,9 +18,10 @@ var Button = React.createClass({
   },
 
   render() {
-    var touchableProps = {
+    let touchableProps = {
       activeOpacity: this._computeActiveOpacity(),
     };
+
     if (!this.props.disabled) {
       touchableProps.onPress = this.props.onPress;
       touchableProps.onPressIn = this.props.onPressIn;
@@ -70,14 +36,20 @@ var Button = React.createClass({
     );
   },
 
-  _renderGroupedChildren() {
-    var buttonStateStyle = this.props.disabled ? styles.disabledText : null;
+  _stylesFromType(refinement) {
+    return buttonStyles[this.props.type] && buttonStyles[this.props.type][refinement];
+  },
 
-    var children = coalesceNonElementChildren(this.props.children, (children, index) => {
+  _renderGroupedChildren() {
+    let disabledStateStyle = this.props.disabled ? styles.disabledText : null;
+
+    let children = _.flatten([this.props.children]).map((children, index) => {
       return (
         <Text
           key={index}
-          style={[styles.text, buttonStateStyle, styles.button, (styles[this.props.type] || {}), this.props.style]}>
+          allowFontScaling={false}
+          style={[{flex: 0, paddingHorizontal: 5, textAlign: 'center'}, styles.text, disabledStateStyle, this._stylesFromType('text'), this.props.textStyle]}
+        >
           {children}
         </Text>
       );
@@ -86,10 +58,8 @@ var Button = React.createClass({
     switch (children.length) {
       case 0:
         return null;
-      case 1:
-        return children[0];
       default:
-        return <View style={styles.group}>{children}</View>;
+        return <View style={[{justifyContent: 'center', alignItems: 'center'}, styles.button, this._stylesFromType('button'), this.props.style]}>{children}</View>;
     }
   },
 
@@ -103,35 +73,107 @@ var Button = React.createClass({
   },
 });
 
-var styles = StyleSheet.create({
-  button: {
-    padding: 15
-  },
+const buttonStyles = {
   blue: {
-    backgroundColor: cssVar('blue50')
+    button: {
+      backgroundColor: cssVar('blue50'),
+    },
+    text: {
+      color: 'white',
+    },
   },
-  transparent: {
-    backgroundColor: 'transparent',
-    borderWidth: 1 / PixelRatio.get(),
-    borderColor: 'white',
+
+  secondary: {
+    button: {
+      backgroundColor: 'white',
+      borderColor: cssVar('blue50'),
+    },
+    text: {
+      color: cssVar('blue50'),
+    },
   },
+
+  link: {
+    text: {
+      textDecorationLine: 'underline',
+      color: cssVar('gray50'),
+    },
+  },
+
+  square: {
+    button: {
+      borderRadius: 0,
+    },
+  },
+
   icon: {
-    fontFamily: cssVar('fontIcon')
+    text: {
+      fontFamily: cssVar('fontIcon'),
+    },
+    button: {
+      borderRadius: 0,
+      padding: 5,
+      margin: 0,
+      flex: 0,
+    },
   },
+
+  autoWidth: {
+    button: {
+      flex: 0,
+    },
+  },
+
+  transparent: {
+    button: {
+      backgroundColor: 'transparent',
+      borderColor: 'white',
+    },
+  },
+
+  transparentBlue: {
+    button: {
+      backgroundColor: 'transparent',
+      borderColor: cssVar('blue50'),
+    },
+    text: {
+      color: cssVar('blue50'),
+    },
+  },
+
+  transparentGray: {
+    button: {
+      backgroundColor: 'transparent',
+      borderColor: cssVar('gray50'),
+    },
+    text: {
+      color: cssVar('gray50'),
+    },
+  },
+
+};
+
+const styles = StyleSheet.create({
+
+  button: {
+    padding: 15,
+    borderRadius: 1.5 * PixelRatio.get(),
+    borderWidth: 1 / PixelRatio.get(),
+    borderColor: 'transparent',
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+
   text: {
     color: 'white',
-    fontSize: 17,
-    fontWeight: 'bold',
-    textAlign: 'center',
+    fontFamily: cssVar('fontRegular'),
+    fontSize: 18,
   },
+
   disabledText: {
     color: '#dcdcdc',
   },
-  group: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
 });
 
-module.exports = Button;
+export default Button;

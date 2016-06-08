@@ -1,20 +1,22 @@
-var React = require('react-native');
+import React from 'react';
 
-var {
+import {
   Text,
   View,
   StyleSheet,
   TouchableOpacity,
   NativeModules,
-} = React;
+} from 'react-native';
 
-var client     = require('../Api/HTTPClient');
-var Dispatcher = require('../Dispatcher');
+const {
+  TestRunnerManager,
+  DevMenu,
+} = NativeModules;
 
-var TestRunnerManager = require('react-native').NativeModules.TestRunnerManager;
-var DevMenu           = require('react-native').NativeModules.DevMenu;
+import client     from '../Api/HTTPClient';
+import Dispatcher from '../Dispatcher';
 
-var StatusBar         = require('../Platform/StatusBar');
+import StatusBar from '../Platform/StatusBar';
 
 var TestRunner = React.createClass({
   componentDidMount: function() {
@@ -131,4 +133,4 @@ var styles = StyleSheet.create({
   }
 });
 
-module.exports = TestRunner;
+export default TestRunner;

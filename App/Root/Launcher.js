@@ -1,8 +1,8 @@
-var AppConstants = require('../Constants/AppConstants');
-var Routes       = require('../Navigation/Routes');
+import AppConstants from '../Constants/AppConstants';
+import Routes       from '../Navigation/Routes';
 
-var StatusBar    = require('../Platform/StatusBar');
-var Linking      = require('../Platform/Linking');
+import StatusBar    from '../Platform/StatusBar';
+import Linking      from '../Platform/Linking';
 
 var Launcher = {
   launch: function(root, action) {
@@ -32,7 +32,7 @@ var Launcher = {
         //});
         break;
       case AppConstants.TEST_COMPONENT_ROUTE:
-        var TestComponents = require("../Root/TestComponents");
+        var TestComponents = require("../Root/TestComponents").default;
         action.routeUnderTest.component = TestComponents.find(action.routeUnderTest.component);
         rootComponent.setState({routeUnderTest: action.routeUnderTest});
         break;
@@ -42,4 +42,4 @@ var Launcher = {
   }
 };
 
-module.exports = Launcher;
+export default Launcher;

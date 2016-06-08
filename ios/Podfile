@@ -3,4 +3,6 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 # inhibit_all_warnings!
 
-pod 'SimulatorRemoteNotifications', '~> 0.0.3'
+target 'Sample' do
+  pod 'SimulatorRemoteNotifications', '~> 0.0.3'
+end

@@ -1,5 +1,5 @@
-var React = require('react-native');
-var KeyboardEvents = require('react-native-keyboardevents');
+import React from 'react';
+import KeyboardEvents from 'react-native-keyboardevents';
 var KeyboardEventEmitter = KeyboardEvents.Emitter;
 
 var KeyboardListener = {
@@ -36,4 +36,4 @@ var KeyboardListener = {
   },
 };
 
-module.exports = KeyboardListener;
+export default KeyboardListener;

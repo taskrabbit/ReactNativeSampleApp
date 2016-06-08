@@ -1,15 +1,15 @@
 // https://github.com/ide/react-native-button
 
-var React = require('react-native');
-var {
+import React from 'react';
+import {
   StyleSheet,
   TouchableHighlight,
   View
-} = React;
+} from 'react-native';
 
-var cssVar     = require('../Lib/cssVar');
-var Text       = require('../Components/Text');
-var AppActions = require('../Actions/AppActions');
+import cssVar     from '../Lib/cssVar';
+import Text       from '../Components/Text';
+import AppActions from '../Actions/AppActions';
 
 var SegmentedControl = React.createClass({
   segmentComponents: function() {
@@ -116,4 +116,4 @@ var styles = StyleSheet.create({
   }
 });
 
-module.exports = SegmentedControl;
+export default SegmentedControl;

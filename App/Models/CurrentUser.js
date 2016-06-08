@@ -1,4 +1,4 @@
-var assign = require('../Lib/assignDefined');
+import assign from '../Lib/assignDefined';
 
 var Model = function(options, token) {
   this.data = {};
@@ -22,4 +22,4 @@ Model.prototype.isLoggedIn = function() {
   return !!this.token;
 };
 
-module.exports = Model;
+export default Model;

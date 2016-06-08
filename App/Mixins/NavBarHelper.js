@@ -1,9 +1,9 @@
 // parent must implement getNavBarState()
 
-var TimerMixin = require('react-timer-mixin');
+import TimerMixin from 'react-timer-mixin';
 
-var Dispatcher   = require('../Dispatcher');
-var AppConstants = require('../Constants/AppConstants');
+import Dispatcher   from '../Dispatcher';
+import AppConstants from '../Constants/AppConstants';
 
 var NavBarHelper = {
   mixins: [TimerMixin],
@@ -42,4 +42,4 @@ var NavBarHelper = {
   },
 };
 
-module.exports = NavBarHelper;
+export default NavBarHelper;

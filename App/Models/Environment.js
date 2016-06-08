@@ -1,5 +1,5 @@
-var assign = require('../Lib/assignDefined');
-var jsVersion = require('../jsVersion');
+import assign from '../Lib/assignDefined';
+import jsVersion from '../jsVersion';
 
 var Model = function(options) {
   this.data = {};
@@ -46,4 +46,4 @@ Model.prototype.getLocale = function() {
   return this.data.locale;
 };
 
-module.exports = Model;
+export default Model;

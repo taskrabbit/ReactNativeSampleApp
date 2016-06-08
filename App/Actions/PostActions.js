@@ -1,6 +1,6 @@
-var Dispatcher   = require('../Dispatcher');
-var AppConstants = require('../Constants/AppConstants');
-var PostService  = require('../Api/PostService');
+import Dispatcher   from '../Dispatcher';
+import AppConstants from '../Constants/AppConstants';
+import PostService  from '../Api/PostService';
 
 var PostActions = {
 
@@ -31,4 +31,4 @@ var PostActions = {
   }
 };
 
-module.exports = PostActions;
+export default PostActions;

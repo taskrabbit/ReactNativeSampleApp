@@ -1,4 +1,4 @@
-var assign = require('../Lib/assignDefined');
+import assign from '../Lib/assignDefined';
 
 var Model = function(options) {
   this.data = {};
@@ -14,4 +14,4 @@ Model.prototype.setAttributes = function(options) {
   });
 };
 
-module.exports = Model;
+export default Model;

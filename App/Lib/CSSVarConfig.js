@@ -1,11 +1,11 @@
 'use strict';
 
-var React  = require('react-native');
-var {
+import React from 'react';
+import {
   PixelRatio
-} = React;
+} from 'react-native';
 
-module.exports = {
+export default {
   gray90: '#323A3B',
   gray50: '#828A8B',
   gray30: '#B4B9B9',

@@ -1,16 +1,16 @@
-var React = require('react-native');
-var {
-  StatusBarIOS
-} = React;
+import React from 'react';
+import {
+  StatusBar
+} from 'react-native';
 
-var StatusBar = {
+var _StatusBar = {
   setNetworkActive: function(active) {
-    StatusBarIOS.setNetworkActivityIndicatorVisible(active);
+    StatusBar.setNetworkActivityIndicatorVisible(active);
   },
 
   setHidden: function(hidden) {
-    StatusBarIOS.setHidden(hidden);
+    StatusBar.setHidden(hidden);
   }
 };
 
-module.exports = StatusBar;
+export default _StatusBar;

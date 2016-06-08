@@ -1,8 +1,8 @@
 // wrapper on local storage technique
-var React = require('react-native');
-var {
+import React from 'react';
+import {
   AsyncStorage
-} = React;
+} from 'react-native';
 
 var LocalKeyStore = {
   getKey: function(keyName, callback) {
@@ -44,4 +44,4 @@ var LocalKeyStore = {
   },
 };
 
-module.exports = LocalKeyStore;
+export default LocalKeyStore;

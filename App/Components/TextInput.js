@@ -1,13 +1,15 @@
-var React = require('react-native')
+import React from 'react';
 
-var {
-  PixelRatio
-} = React;
+import {
+  PixelRatio,
+  TextInput,
+  StyleSheet,
+} from 'react-native';
 
-var cssVar = require('../Lib/cssVar');
+import cssVar from '../Lib/cssVar';
 
-var TextInput = React.createClass({
-  propTypes: React.TextInput.propTypes,
+var _TextInput = React.createClass({
+  propTypes: TextInput.propTypes,
 
   focus() {
     this.refs.input.focus();
@@ -20,7 +22,7 @@ var TextInput = React.createClass({
 
   render() {
     return (
-      <React.TextInput
+      <TextInput
         {...this.props}
         ref="input"
         style={[styles.input, this.props.style || {}]}
@@ -29,7 +31,7 @@ var TextInput = React.createClass({
   }
 })
 
-var styles = React.StyleSheet.create({
+var styles = StyleSheet.create({
   input: {
     borderWidth: 1 / PixelRatio.get(),
     borderColor: cssVar('gray50'),
@@ -40,4 +42,4 @@ var styles = React.StyleSheet.create({
   }
 });
 
-module.exports = TextInput;
+export default _TextInput;

@@ -1,7 +1,7 @@
-var React = require('react-native');
+import React from 'react';
 
-var AuthHelper  = require('../Mixins/AuthHelper');
-var AuthActions = require('../Actions/AuthActions');
+import AuthHelper  from '../Mixins/AuthHelper';
+import AuthActions from '../Actions/AuthActions';
 
 var LogIn = React.createClass({
   mixins: [AuthHelper],
@@ -25,4 +25,4 @@ var LogIn = React.createClass({
   },
 });
 
-module.exports = LogIn;
+export default LogIn;

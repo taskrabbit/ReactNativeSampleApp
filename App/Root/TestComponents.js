@@ -1,5 +1,5 @@
 var components = {
-  'Components/SimpleListItem': require("../Components/SimpleListItem")
+  'Components/SimpleListItem': require("../Components/SimpleListItem").default
 };
 
 var TestComponents = {
@@ -8,4 +8,4 @@ var TestComponents = {
   }
 };
 
-module.exports = TestComponents;
+export default TestComponents;

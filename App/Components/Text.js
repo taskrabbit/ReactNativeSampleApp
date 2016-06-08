@@ -1,9 +1,14 @@
-var React = require('react-native')
+import React from 'react';
 
-var cssVar = require('../Lib/cssVar');
+import ReactNative, {
+  Text,
+  StyleSheet,
+} from 'react-native';
 
-var Text = React.createClass({
-  propTypes: React.Text.propTypes,
+import cssVar from '../Lib/cssVar';
+
+var _Text = React.createClass({
+  propTypes: Text.propTypes,
 
   setNativeProps() {
     var text = this.refs.text;
@@ -11,7 +16,7 @@ var Text = React.createClass({
   },
   render() {
     return (
-      <React.Text
+      <Text
         {...this.props}
         ref="text"
         style={[styles.text, this.props.style || {}]}
@@ -20,7 +25,7 @@ var Text = React.createClass({
   }
 })
 
-var styles = React.StyleSheet.create({
+var styles = StyleSheet.create({
   text: {
     fontFamily: cssVar('fontRegular'),
     color: cssVar('gray90'),
@@ -28,4 +33,4 @@ var styles = React.StyleSheet.create({
   }
 });
 
-module.exports = Text;
+export default _Text;

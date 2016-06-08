@@ -1,4 +1,4 @@
-var client = require('../Api/HTTPClient')
+import client from '../Api/HTTPClient';
 
 var FolllowService = {
   parseFolllow: function(response) {
@@ -29,4 +29,4 @@ var FolllowService = {
   }
 };
 
-module.exports = FolllowService;
+export default FolllowService;

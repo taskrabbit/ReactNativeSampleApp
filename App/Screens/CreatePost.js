@@ -1,15 +1,15 @@
-var React = require('react-native');
-var {
+import React from 'react';
+import {
   View,
   StyleSheet
-} = React;
+} from 'react-native';
 
-var TextInput   = require('../Components/TextInput');
-var Button      = require('../Components/Button');
-var PostActions = require('../Actions/PostActions');
-var AppActions  = require('../Actions/AppActions');
+import TextInput   from '../Components/TextInput';
+import Button      from '../Components/Button';
+import PostActions from '../Actions/PostActions';
+import AppActions  from '../Actions/AppActions';
 
-var KeyboardListener = require('../Mixins/KeyboardListener');
+import KeyboardListener from '../Mixins/KeyboardListener';
 
 var CreatePost = React.createClass({
   mixins: [KeyboardListener],
@@ -76,4 +76,4 @@ var styles = StyleSheet.create({
   }
 });
 
-module.exports = CreatePost;
+export default CreatePost;

@@ -1,9 +1,9 @@
 'use strict';
 
-var React = require('react-native');
-var {
-  AppRegistry
-} = React;
+import React from 'react';
+import {
+  AppRegistry,
+} from 'react-native';
 
-var Root = require('./App/Root')
+import Root from './App/Root';
 AppRegistry.registerComponent('Sample', () => Root);

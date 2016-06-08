@@ -1,11 +1,12 @@
-import React from 'react-native';
-import { EventEmitter } from 'events';
+import React             from 'react';
+import { NativeModules } from 'react-native';
+import { EventEmitter }  from 'events';
 
 import Dispatcher    from '../Dispatcher';
 import AppConstants  from '../Constants/AppConstants';
 import LocalKeyStore from '../Stores/LocalKeyStore';
 
-const EnvironmentManager = React.NativeModules.EnvironmentManager;
+const EnvironmentManager = NativeModules.EnvironmentManager;
 
 const CHANGE_EVENT                 = 'change';
 const DEBUG_CURRENT_ROUTE_PATH_KEY = AppConstants.DEBUG_CURRENT_ROUTE_PATH_KEY;
@@ -63,4 +64,4 @@ Dispatcher.register(function(action) {
   }
 });
 
-module.exports = SingletonStore;
+export default SingletonStore;

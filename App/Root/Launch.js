@@ -1,10 +1,10 @@
-var React = require('react-native');
+import React from 'react';
 
-var {
+import {
   Text,
   View,
   StyleSheet
-} = React;
+} from 'react-native';
 
 
 var Launch = React.createClass({
@@ -24,4 +24,4 @@ var styles = StyleSheet.create({
   }
 });
 
-module.exports = Launch;
+export default Launch;

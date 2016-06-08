@@ -1,4 +1,4 @@
-var client = require('../Api/HTTPClient')
+import client from '../Api/HTTPClient';
 
 var UserService = {
   parseAccount: function(response) {
@@ -29,4 +29,4 @@ var UserService = {
   }
 };
 
-module.exports = UserService;
+export default UserService;

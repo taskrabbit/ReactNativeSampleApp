@@ -1,17 +1,17 @@
-var React  = require('react-native');
-var {
+import React from 'react';
+import {
   View,
   StyleSheet,
   TouchableOpacity
-} = React;
+} from 'react-native';
 
-var cssVar = require('../Lib/cssVar');
+import cssVar from '../Lib/cssVar';
 
-var DispatcherListener = require('../Mixins/DispatcherListener');
-var AppConstants       = require('../Constants/AppConstants');
-var AppActions         = require('../Actions/AppActions');
+import DispatcherListener from '../Mixins/DispatcherListener';
+import AppConstants       from '../Constants/AppConstants';
+import AppActions         from '../Actions/AppActions';
 
-var Text = require('../Components/Text');
+import Text from '../Components/Text';
 
 var NavigationButton = React.createClass({
   mixins: [DispatcherListener],
@@ -129,4 +129,4 @@ var styles = StyleSheet.create({
   }
 });
 
-module.exports = NavigationButton;
+export default NavigationButton;

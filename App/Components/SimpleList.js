@@ -1,11 +1,11 @@
-var React  = require('react-native');
-var {
+import React from 'react';
+import {
   ListView
-} = React;
+} from 'react-native';
 
-var RefreshableListView = require('react-native-refreshable-listview');
+import RefreshableListView from '../Platform/RefreshableListView';
 
-var SimpleListItem = require('../Components/SimpleListItem');
+import SimpleListItem from '../Components/SimpleListItem';
 
 var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 
@@ -40,4 +40,4 @@ var SimpleList = React.createClass({
   }
 });
 
-module.exports = SimpleList;
+export default SimpleList;

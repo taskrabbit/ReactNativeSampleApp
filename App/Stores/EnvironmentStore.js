@@ -1,11 +1,12 @@
-var EventEmitter = require('events').EventEmitter;
-var assign = require('object-assign');
+import { NativeModules} from 'react-native';
+const EnvironmentManager = NativeModules.EnvironmentManager;
 
-var EnvironmentManager = require('react-native').NativeModules.EnvironmentManager;
+import {EventEmitter} from 'events';
+import assign from 'object-assign';
 
-var Environment    = require('../Models/Environment');
-var Dispatcher     = require('../Dispatcher');
-var AppConstants   = require('../Constants/AppConstants');
+import Environment    from '../Models/Environment';
+import Dispatcher     from '../Dispatcher';
+import AppConstants   from '../Constants/AppConstants';
 
 var CHANGE_EVENT   = 'change';
 
@@ -49,4 +50,4 @@ Dispatcher.register(function(action) {
   }
 });
 
-module.exports = SingletonStore;
+export default SingletonStore;

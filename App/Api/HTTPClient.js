@@ -1,10 +1,10 @@
 // http://visionmedia.github.io/superagent
-var superagent = require('superagent');
+import superagent from 'superagent';
 
-var Network = require('../Api/Network');
+import Network from '../Api/Network';
 
-var CurrentUserStore = require('../Stores/CurrentUserStore');
-var EnvironmentStore = require('../Stores/EnvironmentStore');
+import CurrentUserStore from '../Stores/CurrentUserStore';
+import EnvironmentStore from '../Stores/EnvironmentStore';
 
 var HTTPClient = {
   wrapper: function(inner) {
@@ -123,4 +123,4 @@ var HTTPClient = {
   }
 };
 
-module.exports = HTTPClient;
+export default HTTPClient;

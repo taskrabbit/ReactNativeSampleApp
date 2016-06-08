@@ -1,9 +1,9 @@
-var React = require('react-native');
+import React from 'react';
 
-var ListHelper = require('../Mixins/ListHelper');
+import ListHelper from '../Mixins/ListHelper';
 
-var FollowListStore = require('../Stores/FollowListStore');
-var FollowActions   = require('../Actions/FollowActions');
+import FollowListStore from '../Stores/FollowListStore';
+import FollowActions   from '../Actions/FollowActions';
 
 var FollowList = React.createClass({
   mixins: [ListHelper],
@@ -59,4 +59,4 @@ var FollowList = React.createClass({
 
 
 
-module.exports = FollowList;
+export default FollowList;

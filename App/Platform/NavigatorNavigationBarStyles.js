@@ -1,1 +1,1 @@
-module.exports = require('NavigatorNavigationBarStylesIOS');
+export default require('NavigatorNavigationBarStylesIOS');

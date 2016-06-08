@@ -1,9 +1,9 @@
-var React = require('react-native');
+import React from 'react';
 
-var ListHelper = require('../Mixins/ListHelper');
+import ListHelper from '../Mixins/ListHelper';
 
-var PostListStore = require('../Stores/PostListStore');
-var PostActions   = require('../Actions/PostActions');
+import PostListStore from '../Stores/PostListStore';
+import PostActions   from '../Actions/PostActions';
 
 var PostList = React.createClass({
   mixins: [ListHelper],
@@ -58,4 +58,4 @@ var PostList = React.createClass({
 
 
 
-module.exports = PostList;
+export default PostList;
