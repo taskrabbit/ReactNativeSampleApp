@@ -2,8 +2,12 @@ require('./packager');
 
 // APPIUM -----------------
 var child_process = require('child_process');
-var appiumProc    = child_process.spawn('appium', ['-p', '4724']);
-var Promise       = require('Promise');
+var appiumProc    = child_process.spawn('appium', [
+  '-p', '4724',
+  '--default-capabilities', '{"fullReset":true}'
+]);
+
+var Promise = require('Promise');
 
 var server = {
   host: 'localhost',
