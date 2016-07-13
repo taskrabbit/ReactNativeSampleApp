@@ -33,10 +33,14 @@ class AutoScaleText extends React.Component {
       fontSize: props.maxFontSize,
       finished: false,
     };
+
+    this.visible = true;
   }
 
   determineFontSize = () => {
     UIManager.measure(ReactNative.findNodeHandle(this.refs.textView), (x, y, w, h, px, py) => {
+      if (!this.visible) return;
+
       if (h > this.props.maxHeight) {
         this.setState({
           fontSize: this.state.fontSize - 0.5,
@@ -48,6 +52,10 @@ class AutoScaleText extends React.Component {
       }
     });
   };
+
+  componentWillUnmount() {
+    this.visible = false;
+  }
 
   render() {
     return (
