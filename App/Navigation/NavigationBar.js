@@ -41,6 +41,8 @@ var Container = React.createClass({
   }
 });
 
+const routeMapper = new NavigationBarRouteMapper();
+
 var NavigationBar = {
   getInitialState: function() {
     return {};
@@ -120,7 +122,7 @@ var NavigationBar = {
 
     return (
       <Navigator.NavigationBar
-        routeMapper={new NavigationBarRouteMapper()}
+        routeMapper={routeMapper}
         style={styles.navBar}
       />
     );
@@ -131,7 +133,6 @@ var NavigationBar = {
       <View style={styles.appContainer}>
         <Navigator
           ref="navigator"
-          debugOverlay={false}
           renderScene={this.renderScene}
           navBarHidden={this.props.navBarHidden}
           initialRouteStack={this.props.routeStack.path}
