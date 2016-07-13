@@ -1,15 +1,19 @@
 import React from 'react';
 import {
   View,
-  StyleSheet
+  StyleSheet,
+  Dimensions,
+  Platform,
 } from 'react-native';
+
+const { width } = Dimensions.get('window');
 
 import cssVar from '../Lib/cssVar';
 
 import DispatcherListener from '../Mixins/DispatcherListener';
 import AppConstants from '../Constants/AppConstants';
 
-import Text from '../Components/Text';
+import AutoScaleText from '../Components/AutoScaleText';
 
 var NavigationTitle = React.createClass({
   mixins: [DispatcherListener],
@@ -28,24 +32,54 @@ var NavigationTitle = React.createClass({
     }
   },
 
+  getButtonPadding() {
+    const { route } = this.props;
+
+    // for some reason 70 is the magic number for Android
+    if (Platform.OS === 'android') {
+      return 70;
+    }
+    // if navRight is a text return 70
+    if (route.navRight && route.navRight.label) {
+      return 70;
+    }
+    // if navLeft is a text return 70
+    if (route.navLeft && route.navLeft.label) {
+      return 70;
+    }
+
+    if (route.navBack && route.navBack.label) {
+      return 70;
+    }
+
+    return 40;
+  },
+
   render: function() {
     var title = this.state.updatedTitle || this.props.route.title;
     return (
-      <Text style={styles.navBarTitleText}>
+      <AutoScaleText
+        style={[styles.navBarTitleText, {width: width - this.getButtonPadding() * 2}]}
+        allowFontScaling={false}
+        maxFontSize={20}
+        maxHeight={50}
+        color='white'
+      >
         {title}
-      </Text>
+      </AutoScaleText>
     );
   }
 });
 
+const marginVertical = Platform.OS === 'ios' ? 8 : 15;
 var styles = StyleSheet.create({
   navBarTitleText: {
-    fontSize: 20,
     fontFamily: cssVar('fontRegular'),
-    color: 'white',
     fontWeight: '500',
-    marginVertical: 9,
-  }
+    marginVertical: marginVertical,
+    textAlign: 'center',
+    paddingBottom: 6,
+  },
 });
 
 export default NavigationTitle;
