@@ -92,25 +92,18 @@ We are currently sharing code through mixins. Some of them might be generally us
 * DispatcherListener: subscribes and ubsubscribes from the Dispatcher for a component
 * NavigationListener: react to navigation changes in a component
 
-# Future Concepts
-
-Let us know if you think one of these would be helpful
-
 #### Extensions
 
-We've been trying out ways to not use mixins.
-
-#### Context
-
-Some of the things that are props here are in the context in our real app.
+We've been trying out ways to not use mixins. `AddSpinnerLoader` is an example of a higher-level component.
 
 #### i18n
 
-We've internationalized our app.
+We've internationalized our app. Each component definies it's own keys.
+This provides a sample of how that works.
 
 #### Android too
 
-We'll have to figure this one out eventually.
+We shipped our Android app! We need to update this to work there too.
 
 
 ## License
