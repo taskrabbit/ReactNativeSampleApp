@@ -4,6 +4,8 @@ import {
   StyleSheet
 } from 'react-native';
 
+import Locale from '../Locale';
+
 import TextInput   from '../Components/TextInput';
 import Button      from '../Components/Button';
 import PostActions from '../Actions/PostActions';
@@ -41,7 +43,7 @@ var CreatePost = React.createClass({
     return (
       <View style={styles.flex}>
         <TextInput ref="content"
-          placeholder={"What do you have to say for yourself?"}
+          placeholder={i18n.t('placeholder')}
           keyboardType="default"
           multiline={true}
           autoFocus={true}
@@ -53,13 +55,18 @@ var CreatePost = React.createClass({
         <View style={styles.footer}>
           <View style={styles.flex} />
           <Button type='blue' style={styles.button} onPress={this.onSubmitButton}>
-            Submit
+            {i18n.t('submit')}
           </Button>
         </View>
         <View style={{height: this.state.keyboardSpace}}></View>
       </View>
     );
   }
+});
+
+var i18n = Locale.key('CreatePost', {
+  placeholder: 'What do you have to say for yourself?',
+  submit: 'Submit',
 });
 
 var styles = StyleSheet.create({

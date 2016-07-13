@@ -1,9 +1,16 @@
 import React from 'react';
 
+import Locale from '../Locale';
+
 import ListHelper from '../Mixins/ListHelper';
 
 import FollowListStore from '../Stores/FollowListStore';
 import FollowActions   from '../Actions/FollowActions';
+
+var i18n = Locale.key('FollowList', {
+  posts: 'Posts',
+  follows: 'Follows',
+});
 
 var FollowList = React.createClass({
   mixins: [ListHelper],
@@ -17,11 +24,11 @@ var FollowList = React.createClass({
       segment: {
         items: [
           {
-            title: 'Posts',
+            title: i18n.t('posts'),
             replacePath: 'posts'
           },
           {
-            title: 'Follows',
+            title: i18n.t('follows'),
             replacePath: 'follows',
             selected: true
           }
@@ -56,7 +63,5 @@ var FollowList = React.createClass({
     });
   }
 });
-
-
 
 export default FollowList;

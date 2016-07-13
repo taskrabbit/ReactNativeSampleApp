@@ -1,18 +1,29 @@
 import Router from '../Navigation/Router';
 
+import Locale from '../Locale';
+
+var i18n = Locale.key('Routes', {
+  login: 'Log in',
+  signup: 'Sign Up',
+  settings: 'Settings',
+  new_post: 'New Post',
+  cancel: 'Cancel',
+  account: 'Me'
+});
+
 var Routes = {
 
   LogIn: function() {
     return {
       component: require('../Screens/LogIn').default,
-      title: 'Log in'
+      title: i18n.t('login')
     };
   },
 
   SignUp: function() {
     return {
       component: require('../Screens/SignUp').default,
-      title: 'Sign Up'
+      title: i18n.t('signup')
     };
   },
 
@@ -39,16 +50,16 @@ var Routes = {
   Settings: function() {
     return {
       component: require('../Screens/Settings').default,
-      title: 'Settings'
+      title: i18n.t('settings')
     };
   },
 
   CreatePost: function() {
     return {
       component: require('../Screens/CreatePost').default,
-      title: 'New Post',
+      title: i18n.t('new_post'),
       navBack: {
-        label: 'Cancel'
+        label: i18n.t('cancel')
       }
     };
   },
@@ -81,7 +92,7 @@ var listRoute = function(route, defaultRoute) {
   if(!route.navLeft && !username) {
     route.navLeft = {
       subPath: '_settings',
-      label: 'Me' // TODO: icon font
+      label: i18n.t('account') // TODO: icon font
     };
   }
   return route;
