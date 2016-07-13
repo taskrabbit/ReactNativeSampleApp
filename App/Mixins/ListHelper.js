@@ -14,6 +14,8 @@ import {
   ListView
 } from 'react-native';
 
+import Locale from '../Locale';
+
 import CurrentUserStore   from '../Stores/CurrentUserStore';
 import NavigationListener from '../Mixins/NavigationListener';
 import NavBarHelper       from '../Mixins/NavBarHelper';
@@ -59,7 +61,7 @@ var ListHelper = {
   },
 
   getNavBarState: function() {
-    var title = this.props.username ? this.props.username : "Dashboard";
+    var title = this.props.username ? this.props.username : i18n.t('dashboard');
     return { title: title };
   },
 
@@ -126,6 +128,10 @@ var ListHelper = {
     }
   }
 };
+
+var i18n = Locale.key('ListHelper', {
+  dashboard: 'Dashboard'
+});
 
 var styles = StyleSheet.create({
   flex: {

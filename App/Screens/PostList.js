@@ -1,9 +1,16 @@
 import React from 'react';
 
+import Locale from '../Locale';
+
 import ListHelper from '../Mixins/ListHelper';
 
 import PostListStore from '../Stores/PostListStore';
 import PostActions   from '../Actions/PostActions';
+
+var i18n = Locale.key('PostList', {
+  posts: 'Posts',
+  follows: 'Follows',
+});
 
 var PostList = React.createClass({
   mixins: [ListHelper],
@@ -17,12 +24,12 @@ var PostList = React.createClass({
       segment: {
         items: [
           {
-            title: 'Posts',
+            title: i18n.t('posts'),
             replacePath: 'posts',
             selected: true
           },
           {
-            title: 'Follows',
+            title: i18n.t('follows'),
             replacePath: 'follows'
           }
         ]

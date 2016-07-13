@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 
 import cssVar from '../Lib/cssVar';
+import Locale from '../Locale';
 
 import AppActions from '../Actions/AppActions';
 import Text       from '../Components/Text';
@@ -30,9 +31,9 @@ var AuthHelper = {
   getLinkText: function() {
     switch(this.props.authType) {
       case 'login':
-        return 'Not a user? Sign up here.';
+        return i18n.t('login_link');
       case 'signup':
-        return 'Already a user? Login here.';
+        return i18n.t('signup_link');
       default:
         return '';
     }
@@ -56,9 +57,9 @@ var AuthHelper = {
   getButtonText: function() {
     switch(this.props.authType) {
       case 'login':
-        return 'Log in';
+        return i18n.t('login_button');
       case 'signup':
-        return 'Sign up';
+        return i18n.t('signup_button');
       default:
         return '';
     }
@@ -79,7 +80,7 @@ var AuthHelper = {
       <View style={styles.container}>
         <View style={styles.flex} />
         <TextInput ref="username"
-          placeholder={"Username"}
+          placeholder={i18n.t('username')}
           keyboardType="default"
           style={[styles.input, styles.username]}
           enablesReturnKeyAutomatically={true}
@@ -88,7 +89,7 @@ var AuthHelper = {
           onSubmitEditing={() => this.refs.password.focus() }
           />
         <TextInput ref="password"
-          placeholder={'Password'}
+          placeholder={i18n.t('password')}
           password={true}
           autoCorrect={false}
           keyboardType="default"
@@ -119,6 +120,17 @@ var AuthHelper = {
     )
   }
 };
+
+var i18n = Locale.key('AuthHelper', {
+  login_button: 'Log in',
+  login_link: 'Not a user? Sign up here.',
+
+  signup_button: 'Sign up',
+  signup_link: 'Already a user? Login here.',
+
+  username: 'Username',
+  password: 'Password',
+});
 
 var styles = StyleSheet.create({
   flex: {

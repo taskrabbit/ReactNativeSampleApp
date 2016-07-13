@@ -6,16 +6,21 @@ import {
 } from 'react-native';
 
 import cssVar from '../Lib/cssVar';
+import Locale from '../Locale';
 
 import SimpleList   from '../Components/SimpleList';
 import AppConstants from '../Constants/AppConstants';
 
 import EnvironmentStore from '../Stores/EnvironmentStore';
 
+var i18n = Locale.key('Settings', {
+  logout: 'Log out',
+});
+
 function getListState() {
   var list = [];
   list.push({
-    title: "Log out",
+    title: i18n.t('logout'),
     actionType: AppConstants.LOGOUT_REQUESTED
   });
 
