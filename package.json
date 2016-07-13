@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node_modules/react-native/packager/packager.sh",
     "test": "npm run mocha-test test/integration",
-    "mocha-test": "mocha --recursive --compilers js:babel-core/register",
+    "mocha-test": "mocha --require react-native-mock/mock.js --recursive --compilers js:babel-core/register",
     "compile:test": "TARGET=test node tasks/compile.js",
     "compile:staging": "TARGET=staging node tasks/compile.js",
     "install:staging": "PHONE=true TARGET=staging node tasks/compile.js"
@@ -40,6 +40,7 @@
     "koa-bodyparser": "2.0.1",
     "mocha": "2.4.5",
     "node-inspector": "0.12.3",
+    "react-native-mock": "0.2.2",
     "rnpm-plugin-upgrade": "^0.26.0",
     "wd": "0.4.0",
     "yiewd": "0.6.0"
