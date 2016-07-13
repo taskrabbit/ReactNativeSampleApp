@@ -11,6 +11,8 @@ import AppActions  from '../Actions/AppActions';
 
 import KeyboardListener from '../Mixins/KeyboardListener';
 
+import AddSpinnerLoader from '../Extensions/AddSpinnerLoader';
+
 var CreatePost = React.createClass({
   mixins: [KeyboardListener],
 
@@ -21,7 +23,10 @@ var CreatePost = React.createClass({
   },
 
   onSubmitButton: function() {
+    this.props['AddSpinnerLoader'].start();
+
     PostActions.createPost(this.state.content, function(error) {
+      this.props['AddSpinnerLoader'].stop();
       if (error) {
         // TODO: better error handling
         alert(error.message);
@@ -76,4 +81,5 @@ var styles = StyleSheet.create({
   }
 });
 
+CreatePost = AddSpinnerLoader(CreatePost);
 export default CreatePost;
