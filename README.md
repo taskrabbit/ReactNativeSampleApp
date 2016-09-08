@@ -12,6 +12,7 @@ In the `ios` directory
 
 * Install Pods: `gem install cocoapods`
 * Install Pods: `pod install`
+* Install xcpretty: `gem install xcpretty`
 * Launch: `open Sample.xcworkspace`
 
 ### Server
