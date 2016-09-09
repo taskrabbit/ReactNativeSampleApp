@@ -5,11 +5,10 @@ import {
   PixelRatio,
   View,
   PropTypes,
+  ActivityIndicator,
 } from 'react-native';
 
 import cssVar from '../Lib/cssVar';
-
-import ActivityIndicator from '../Platform/ActivityIndicator';
 
 const SpinnerLoader = React.createClass({
   propTypes: {
