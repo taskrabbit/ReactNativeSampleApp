@@ -66,11 +66,17 @@ var SingletonStore = assign({}, EventEmitter.prototype, {
 Dispatcher.register(function(action) {
   switch(action.actionType) {
     case AppConstants.APP_LAUNCHED:
-      Keychain.getGenericPassword(KEYCHAIN_SERVICE, function(keychainError, username, token) {
-        LocalKeyStore.getKey(LOCAL_STORE_KEY, function(storeError, props) {
-          initSingleton(props, token, username);
+      Keychain.getGenericPassword(KEYCHAIN_SERVICE).then((values) => {
+        const { username, password } = values || {};
+        // password is the stored token.
+        LocalKeyStore.getKey(LOCAL_STORE_KEY, (storeError, props) => {
+          initSingleton(props, password, username);
           SingletonStore.emitChange();
         });
+      }).catch((error) => {
+        console.log(error);
+        initSingleton({}, null, null);
+        SingletonStore.emitChange();
       });
       break;
     case AppConstants.LOGIN_USER:
