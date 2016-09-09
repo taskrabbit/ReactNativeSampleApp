@@ -7,7 +7,7 @@ import React, {
 import {
   View,
   Text,
-  ActivityIndicatorIOS,
+  ActivityIndicator,
   StyleSheet,
 } from 'react-native';
 
@@ -19,7 +19,7 @@ var RefreshingIndicator = React.createClass({
   },
   getDefaultProps() {
     return {
-      activityIndicatorComponent: ActivityIndicatorIOS,
+      activityIndicatorComponent: ActivityIndicator,
     }
   },
   renderActivityIndicator(style) {
