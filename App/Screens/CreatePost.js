@@ -77,7 +77,8 @@ var styles = StyleSheet.create({
     flex: 1,
     fontSize: 16,
     backgroundColor: 'white',
-    padding: 20
+    padding: 20,
+    textAlignVertical: 'top'
   },
   button: {
     // width: 150
