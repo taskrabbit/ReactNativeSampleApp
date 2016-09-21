@@ -70,7 +70,7 @@ class RefreshableListView extends React.Component {
 
     const pullToRefreshProps = {
       style: [this.props.pullToRefreshStyle, {flex: 1}],
-      refreshing: this.state.isRefreshing,
+      refreshing: this.state.isRefreshing || false,
       onRefresh: this.handleRefresh,
       enabled: this.props.androidRefreshable,
     };
