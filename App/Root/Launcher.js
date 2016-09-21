@@ -2,7 +2,10 @@ import AppConstants from '../Constants/AppConstants';
 import Routes       from '../Navigation/Routes';
 
 import StatusBar    from '../Platform/StatusBar';
-import Linking      from '../Platform/Linking';
+
+import {
+  Linking
+} from 'react-native';
 
 var Launcher = {
   launch: function(root, action) {
