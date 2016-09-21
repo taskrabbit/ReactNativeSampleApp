@@ -85,7 +85,6 @@ var styles = StyleSheet.create({
     backgroundColor: 'white'
   },
   row: {
-    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     padding:20
