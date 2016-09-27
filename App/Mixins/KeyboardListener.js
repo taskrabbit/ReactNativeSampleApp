@@ -16,10 +16,6 @@ var KeyboardListener = {
     return this.state.keyboardSpace > 0;
   },
 
-  isKeyboardVisible: function() {
-    return this.state.keyboardSpace > 0;
-  },
-
   updateKeyboardSpace: function(e) {
     if (this.isMounted() && e && e.endCoordinates) {
       this.setState({keyboardSpace: e.endCoordinates.height});

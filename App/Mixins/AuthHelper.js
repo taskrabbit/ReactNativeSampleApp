@@ -79,26 +79,32 @@ var AuthHelper = {
     return (
       <View style={styles.container}>
         <View style={styles.flex} />
-        <TextInput ref="username"
-          placeholder={i18n.t('username')}
-          keyboardType="default"
-          style={[styles.input, styles.username]}
-          enablesReturnKeyAutomatically={true}
-          returnKeyType='next'
-          onChange={(event) => this.state.username = event.nativeEvent.text }
-          onSubmitEditing={() => this.refs.password.focus() }
+        <View style={styles.inputContainer}>
+          <TextInput ref="username"
+            placeholder={i18n.t('username')}
+            keyboardType="default"
+            style={[styles.input, styles.username]}
+            enablesReturnKeyAutomatically={true}
+            autoCapitalize='none'
+            autoCorrect={false}
+            returnKeyType='next'
+            onChange={(event) => this.state.username = event.nativeEvent.text }
+            onSubmitEditing={() => this.refs.password.focus() }
+            />
+        </View>
+        <View style={styles.inputContainer}>
+          <TextInput ref="password"
+            placeholder={i18n.t('password')}
+            secureTextEntry={true}
+            autoCorrect={false}
+            keyboardType="default"
+            style={[styles.input, styles.password]}
+            enablesReturnKeyAutomatically={true}
+            returnKeyType='done'
+            onChange={(event) => this.state.password = event.nativeEvent.text }
+            onSubmitEditing={this.onAuthButton}
           />
-        <TextInput ref="password"
-          placeholder={i18n.t('password')}
-          password={true}
-          autoCorrect={false}
-          keyboardType="default"
-          style={[styles.input, styles.password]}
-          enablesReturnKeyAutomatically={true}
-          returnKeyType='done'
-          onChange={(event) => this.state.password = event.nativeEvent.text }
-          onSubmitEditing={this.onAuthButton}
-        />
+        </View>
         <Button type='blue' onPress={this.onAuthButton}>
           {this.getButtonText()}
         </Button>
@@ -153,7 +159,11 @@ var styles = StyleSheet.create({
     fontSize: 13,
     height: 50,
     padding: 10,
+    flex: 1,
     marginHorizontal: 30
+  },
+  inputContainer: {
+    flexDirection: 'row'
   },
   bottom: {
     flexDirection: 'row'

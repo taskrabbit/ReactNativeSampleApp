@@ -48,7 +48,7 @@ const Button = React.createClass({
         <Text
           key={index}
           allowFontScaling={false}
-          style={[{flex: 0, paddingHorizontal: 5, textAlign: 'center'}, styles.text, disabledStateStyle, this._stylesFromType('text'), this.props.textStyle]}
+          style={[{flex: 0, marginHorizontal: 5, textAlign: 'center'}, styles.text, disabledStateStyle, this._stylesFromType('text'), this.props.textStyle]}
         >
           {children}
         </Text>

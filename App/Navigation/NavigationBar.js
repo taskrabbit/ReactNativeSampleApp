@@ -8,6 +8,7 @@ import {
 
 import cssVar from '../Lib/cssVar';
 
+import Back                         from '../Platform/Back';
 import NavigatorNavigationBarStyles from '../Platform/NavigatorNavigationBarStyles';
 import NavigationBarRouteMapper     from '../Navigation/NavigationBarRouteMapper';
 
@@ -126,6 +127,10 @@ var NavigationBar = {
         style={styles.navBar}
       />
     );
+  },
+
+  componentDidMount: function() {
+    Back.setNavigator(this.refs.navigator);
   },
 
   render: function() {

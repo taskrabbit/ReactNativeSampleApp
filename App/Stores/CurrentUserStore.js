@@ -1,6 +1,6 @@
 import {EventEmitter} from 'events';
 import assign   from 'object-assign';
-import Keychain from 'react-native-keychain';
+import Keychain from '../Platform/Keychain';
 
 import CurrentUser    from '../Models/CurrentUser';
 import LocalKeyStore  from '../Stores/LocalKeyStore';
