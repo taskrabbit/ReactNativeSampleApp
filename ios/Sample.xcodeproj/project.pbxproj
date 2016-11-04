@@ -23,7 +23,6 @@
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		3D74A9A83D1AEF3D69F69B19 /* libPods-Sample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3765187F1730E17E74E7CC6C /* libPods-Sample.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
-		D339AEF21BAA809100CFA651 /* libRNKeyboardEvents.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D339AEF01BAA808800CFA651 /* libRNKeyboardEvents.a */; };
 		D36840121BEA726800A9B3F4 /* TestRunnerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D36840111BEA726800A9B3F4 /* TestRunnerManager.m */; };
 		D374ADC51BA929C500453203 /* libRNKeychain.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D374ADC41BA929BA00453203 /* libRNKeychain.a */; };
 		D374ADD31BA9336E00453203 /* EnvironmentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D374ADD21BA9336E00453203 /* EnvironmentManager.m */; };
@@ -100,13 +99,6 @@
 			remoteGlobalIDString = 58B5119B1A9E6C1200147676;
 			remoteInfo = RCTText;
 		};
-		D339AEEF1BAA808800CFA651 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D339AEE11BAA808800CFA651 /* RNKeyboardEvents.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F12AFB9B1ADAF8F800E0535D;
-			remoteInfo = RNKeyboardEvents;
-		};
 		D374ADC31BA929BA00453203 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D374ADB51BA929B900453203 /* RNKeychain.xcodeproj */;
@@ -136,7 +128,7 @@
 		3765187F1730E17E74E7CC6C /* libPods-Sample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Sample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
-		D339AEE11BAA808800CFA651 /* RNKeyboardEvents.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNKeyboardEvents.xcodeproj; path = "../node_modules/react-native-keyboardevents/RNKeyboardEvents.xcodeproj"; sourceTree = "<group>"; };
+		D367C7761DCD49AF007AA6C7 /* Sample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Sample.entitlements; path = Sample/Sample.entitlements; sourceTree = "<group>"; };
 		D36840111BEA726800A9B3F4 /* TestRunnerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestRunnerManager.m; path = Sample/TestRunnerManager.m; sourceTree = "<group>"; };
 		D36DCD9F1BD4A92600B3EB2F /* Staging.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Staging.xcconfig; sourceTree = "<group>"; };
 		D36DCDA01BD4A92600B3EB2F /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
@@ -149,7 +141,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D339AEF21BAA809100CFA651 /* libRNKeyboardEvents.a in Frameworks */,
 				D374ADC51BA929C500453203 /* libRNKeychain.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
@@ -234,6 +225,7 @@
 		13B07FAE1A68108700A75B9A /* Sample */ = {
 			isa = PBXGroup;
 			children = (
+				D367C7761DCD49AF007AA6C7 /* Sample.entitlements */,
 				D36840111BEA726800A9B3F4 /* TestRunnerManager.m */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -266,7 +258,6 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				D339AEE11BAA808800CFA651 /* RNKeyboardEvents.xcodeproj */,
 				D374ADB51BA929B900453203 /* RNKeychain.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
@@ -308,14 +299,6 @@
 			isa = PBXGroup;
 			children = (
 				13B07F961A680F5B00A75B9A /* Sample.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		D339AEE21BAA808800CFA651 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				D339AEF01BAA808800CFA651 /* libRNKeyboardEvents.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -377,6 +360,16 @@
 			attributes = {
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = Facebook;
+				TargetAttributes = {
+					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = SW949P2V98;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
+					};
+				};
 			};
 			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "Sample" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -429,10 +422,6 @@
 				{
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
-				},
-				{
-					ProductGroup = D339AEE21BAA808800CFA651 /* Products */;
-					ProjectRef = D339AEE11BAA808800CFA651 /* RNKeyboardEvents.xcodeproj */;
 				},
 				{
 					ProductGroup = D374ADB61BA929B900453203 /* Products */;
@@ -515,13 +504,6 @@
 			fileType = archive.ar;
 			path = libRCTText.a;
 			remoteRef = 832341B41AAA6A8300B99B32 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		D339AEF01BAA808800CFA651 /* libRNKeyboardEvents.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRNKeyboardEvents.a;
-			remoteRef = D339AEEF1BAA808800CFA651 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		D374ADC41BA929BA00453203 /* libRNKeychain.a */ = {
@@ -640,6 +622,7 @@
 			baseConfigurationReference = D36DCDA01BD4A92600B3EB2F /* Debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Sample/Sample.entitlements;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -748,6 +731,7 @@
 			baseConfigurationReference = D36DCD9F1BD4A92600B3EB2F /* Staging.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Sample/Sample.entitlements;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
