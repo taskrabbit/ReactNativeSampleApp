@@ -57,9 +57,6 @@ export default function(request, parent, isMain) {
       if (/react-native-/.test(request)) {
         return {};
       }
-      if (/ReactNative/.test(request)) {
-        return {};
-      }
   }
 
   // other issues
