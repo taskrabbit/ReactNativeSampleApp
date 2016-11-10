@@ -1,0 +1,28 @@
+{
+  "fail": {
+    "lower": [
+      "organis",
+      "neighbour",
+      "postcode",
+      "post code",
+      "postal code",
+      "takeaway",
+      "cancelled",
+      "queue in line",
+      "revolutionis",
+      "categoris",
+      "christmas help",
+      "hoover",
+      "lorry",
+      "behaviour",
+      "favourite",
+      "surname",
+      "sort code",
+      "www.taskrabbit.co.uk",
+      "taskrabbit.co.uk",
+      "£"
+    ],
+    "sensitive": [
+    ]
+  }
+}

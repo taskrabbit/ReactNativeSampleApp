@@ -8,7 +8,11 @@
     "mocha-test": "mocha --recursive --compilers js:babel-core/register",
     "compile:test": "TARGET=test node tasks/compile.js",
     "compile:staging": "TARGET=staging node tasks/compile.js",
-    "install:staging": "PHONE=true TARGET=staging node tasks/compile.js"
+    "install:staging": "PHONE=true TARGET=staging node tasks/compile.js",
+    "translation:dump": "ACTION=dump node tasks/translation.js",
+    "translation:backfill": "ACTION=backfill node tasks/translation.js",
+    "translation:times": "ACTION=times node tasks/translation.js",
+    "translation:check": "ACTION=check node tasks/translation.js"
   },
   "dependencies": {
     "events": "1.1.0",
@@ -22,7 +26,9 @@
     "react": "15.3.1",
     "react-native": "0.33.0",
     "react-native-keychain": "0.2.6",
+    "react-native-mock": "0.2.7",
     "react-timer-mixin": "0.13.3",
+    "require-all": "2.0.0",
     "superagent": "1.8.3",
     "underscore": "1.8.3",
     "underscore.string": "3.2.2"
