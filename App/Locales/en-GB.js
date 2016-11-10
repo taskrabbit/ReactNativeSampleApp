@@ -7,6 +7,7 @@ export default {
     short_day: '%a %b %-d',
     short_time: '%-H:%M',
     month_day: '%B %-d',
+    short_month_day: '%b %-d',
     month_day_year: '%e %b %Y',
     month_day_year_at_time: '%-d %B %Y at %-H:%M',
     short_weekday_name: '%a',
