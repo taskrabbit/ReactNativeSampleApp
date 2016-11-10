@@ -17,7 +17,7 @@ Manager.prototype.t = function(scope, options) {
     scope = this.key + '.' + scope; // prepend our key
   }
   return I18n.t(scope, options);
-}
+};
 
 var Locale = {
   key: function(object, enHash) {

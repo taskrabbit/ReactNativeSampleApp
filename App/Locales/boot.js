@@ -9,12 +9,12 @@ I18n.translations['en-GB']      = require('../Locales/en-GB.js').default;       
 I18n.translations['en-GB-xtra'] = require('../Locales/en-GB-xtra.js').default;       // programmatic - ideally empty and in translated
 
 
-I18n.default_locale = "en-US";
-I18n.locale = "en-US";
+I18n.default_locale = 'en-US';
+I18n.locale = 'en-US';
 
 I18n.fallbacks = {
   'en-US': ['en', 'base'],
-  'en-GB': ['en-GB-xtra', 'en', 'base']
+  'en-GB': ['en-GB-xtra', 'en', 'base'],
 };
 
 const countryIsoCodesToLocale = {

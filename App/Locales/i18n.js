@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 // https://github.com/fnando/i18n-js/blob/ab4bc2af10221141f04c738e1b1eb94ec381a661/app/assets/javascripts/i18n.js
 // I18n.js
 // =======
@@ -21,20 +23,20 @@ const defaultTimezoneName = defaultTimezone.name();
 
 global._Date = global._Date || Date;
 
-;(function(factory) {
+(function(factory) {
   if (typeof module !== 'undefined' && module.exports) {
     // Node/CommonJS
     module.exports = factory(this);
   } else if (typeof define === 'function' && define.amd) {
     // AMD
     var global=this;
-    define('i18n', function(){ return factory(global);});
+    define('i18n', function() { return factory(global); });
   } else {
     // Browser globals
     this.I18n = factory(this);
   }
 }(function(global) {
-  "use strict";
+  'use strict';
 
   // Use previously defined object if exists in current scope
   var I18n = global && global.I18n || {};
@@ -44,57 +46,57 @@ global._Date = global._Date || Date;
 
   // Apply number padding.
   var padding = function(number) {
-    return ("0" + number.toString()).substr(-2);
+    return ('0' + number.toString()).substr(-2);
   };
 
   // Set default days/months translations.
   var DATE = {
-      day_names: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-    , abbr_day_names: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
-    , month_names: [null, "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-    , abbr_month_names: [null, "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-    , meridian: ["AM", "PM"]
+    day_names: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+    , abbr_day_names: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+    , month_names: [null, 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+    , abbr_month_names: [null, 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    , meridian: ['AM', 'PM'],
   };
 
   // Set default number format.
   var NUMBER_FORMAT = {
-      precision: 3
-    , separator: "."
-    , delimiter: ","
-    , strip_insignificant_zeros: false
+    precision: 3
+    , separator: '.'
+    , delimiter: ','
+    , strip_insignificant_zeros: false,
   };
 
   // Set default currency format.
   var CURRENCY_FORMAT = {
-      unit: "$"
+    unit: '$'
     , precision: 2
-    , format: "%u%n"
+    , format: '%u%n'
     , sign_first: true
-    , delimiter: ","
-    , separator: "."
+    , delimiter: ','
+    , separator: '.',
   };
 
   // Set default percentage format.
   var PERCENTAGE_FORMAT = {
-      unit: "%"
+    unit: '%'
     , precision: 3
-    , format: "%n%u"
-    , separator: "."
-    , delimiter: ""
+    , format: '%n%u'
+    , separator: '.'
+    , delimiter: '',
   };
 
   // Set default size units.
-  var SIZE_UNITS = [null, "kb", "mb", "gb", "tb"];
+  var SIZE_UNITS = [null, 'kb', 'mb', 'gb', 'tb'];
 
   // Other default options
   var DEFAULT_OPTIONS = {
     // Set default locale. This locale will be used when fallback is enabled and
     // the translation doesn't exist in a particular locale.
-      defaultLocale: "en"
+    defaultLocale: 'en'
     // Set the current locale to `en`.
-    , locale: "en"
+    , locale: 'en'
     // Set the translation key separator.
-    , defaultSeparator: "."
+    , defaultSeparator: '.'
     // Set the placeholder format. Accepts `{placeholder}}` and `%{placeholder}`.}
     , placeholder: /(?:\{\{|%\{)(.*?)(?:\}\}?)/gm
     // Set if engine should fallback to the default locale when a translation
@@ -108,7 +110,7 @@ global._Date = global._Date || Date;
     // if you use missingBehaviour with 'message', but want to know that the
     // string is actually missing for testing purposes, you can prefix the
     // guessed string by setting the value here. By default, no prefix!
-    , missingTranslationPrefix: ''
+    , missingTranslationPrefix: '',
   };
 
   I18n.reset = function() {
@@ -142,22 +144,22 @@ global._Date = global._Date || Date;
 
   // Much like `reset`, but only assign options if not already assigned
   I18n.initializeOptions = function() {
-    if (typeof(this.defaultLocale) === "undefined" && this.defaultLocale !== null)
+    if (typeof(this.defaultLocale) === 'undefined' && this.defaultLocale !== null)
       this.defaultLocale = DEFAULT_OPTIONS.defaultLocale;
 
-    if (typeof(this.locale) === "undefined" && this.locale !== null)
+    if (typeof(this.locale) === 'undefined' && this.locale !== null)
       this.locale = DEFAULT_OPTIONS.locale;
 
-    if (typeof(this.defaultSeparator) === "undefined" && this.defaultSeparator !== null)
+    if (typeof(this.defaultSeparator) === 'undefined' && this.defaultSeparator !== null)
       this.defaultSeparator = DEFAULT_OPTIONS.defaultSeparator;
 
-    if (typeof(this.placeholder) === "undefined" && this.placeholder !== null)
+    if (typeof(this.placeholder) === 'undefined' && this.placeholder !== null)
       this.placeholder = DEFAULT_OPTIONS.placeholder;
 
-    if (typeof(this.fallbacks) === "undefined" && this.fallbacks !== null)
+    if (typeof(this.fallbacks) === 'undefined' && this.fallbacks !== null)
       this.fallbacks = DEFAULT_OPTIONS.fallbacks;
 
-    if (typeof(this.translations) === "undefined" && this.translations !== null)
+    if (typeof(this.translations) === 'undefined' && this.translations !== null)
       this.translations = DEFAULT_OPTIONS.translations;
   };
   I18n.initializeOptions();
@@ -182,9 +184,9 @@ global._Date = global._Date || Date;
   // Retrieve locales based on inline locale, current locale or default to
   // I18n's detection.
   I18n.locales.get = function(locale) {
-    var result = this[locale] || this[I18n.locale] || this["default"];
+    var result = this[locale] || this[I18n.locale] || this['default'];
 
-    if (typeof(result) === "function") {
+    if (typeof(result) === 'function') {
       result = result(locale);
     }
 
@@ -196,13 +198,13 @@ global._Date = global._Date || Date;
   };
 
   // The default locale list.
-  I18n.locales["default"] = function(locale) {
+  I18n.locales['default'] = function(locale) {
     var locales = []
       , list = []
       , countryCode
       , count
       , fallbackList
-    ;
+      ;
 
     // Handle the inline locale option that can be provided to
     // the `I18n.t` options.
@@ -232,19 +234,19 @@ global._Date = global._Date || Date;
 
     // No locales set? English it is.
     if (!locales.length) {
-      locales.push("en");
+      locales.push('en');
     }
 
     // Compute each locale with its country code.
     // So this will return an array containing both
     // `de-DE` and `de` locales.
-    locales.forEach(function(locale){
+    locales.forEach(function(locale) {
       if (!~list.indexOf(locale)) {
         list.push(locale);
       }
 
       if (I18n.fallbacks && typeof I18n.fallbacks !== 'object') {
-        countryCode = locale.split("-")[0];
+        countryCode = locale.split('-')[0];
         if (countryCode && countryCode !== locale && !~list.indexOf(countryCode)) {
           list.push(countryCode);
         }
@@ -260,16 +262,16 @@ global._Date = global._Date || Date;
   // Return the pluralizer for a specific locale.
   // If no specify locale is found, then I18n's default will be used.
   I18n.pluralization.get = function(locale) {
-    return this[locale] || this[I18n.locale] || this["default"];
+    return this[locale] || this[I18n.locale] || this['default'];
   };
 
   // The default pluralizer rule.
   // It detects the `zero`, `one`, and `other` scopes.
-  I18n.pluralization["default"] = function(count) {
+  I18n.pluralization['default'] = function(count) {
     switch (count) {
-      case 0: return ["zero", "other"];
-      case 1: return ["one"];
-      default: return ["other"];
+      case 0: return ['zero', 'other'];
+      case 1: return ['one'];
+      default: return ['other'];
     }
   };
 
@@ -295,7 +297,7 @@ global._Date = global._Date || Date;
       , locale
       , scopes
       , translations
-    ;
+      ;
 
     scope = this.getFullScope(scope, options);
 
@@ -332,8 +334,8 @@ global._Date = global._Date || Date;
   // This function abstracts this difference and returns
   // the correct meridian or the default value when none is provided.
   I18n.meridian = function() {
-    var time = this.lookup("time");
-    var date = this.lookup("date");
+    var time = this.lookup('time');
+    var date = this.lookup('date');
 
     if (time && time.am && time.pm) {
       return [time.am, time.pm];
@@ -354,12 +356,12 @@ global._Date = global._Date || Date;
     var args = slice.call(arguments)
       , options = {}
       , subject
-    ;
+      ;
 
     while (args.length) {
       subject = args.shift();
 
-      if (typeof(subject) != "object") {
+      if (typeof(subject) !== 'object') {
         continue;
       }
 
@@ -427,7 +429,7 @@ global._Date = global._Date || Date;
       return this.missingTranslation(scope, options);
     }
 
-    if (typeof(translation) === "string") {
+    if (typeof(translation) === 'string') {
       translation = this.interpolate(translation, options);
     } else if (translation instanceof Object && this.isSet(options.count)) {
       translation = this.pluralize(options.count, translation, options);
@@ -444,7 +446,7 @@ global._Date = global._Date || Date;
       , value
       , name
       , regex
-    ;
+      ;
 
     if (!matches) {
       return message;
@@ -454,21 +456,21 @@ global._Date = global._Date || Date;
 
     while (matches.length) {
       placeholder = matches.shift();
-      name = placeholder.replace(this.placeholder, "$1");
+      name = placeholder.replace(this.placeholder, '$1');
 
       if (this.isSet(options[name])) {
-        value = options[name].toString().replace(/\$/gm, "_#$#_");
+        value = options[name].toString().replace(/\$/gm, '_#$#_');
       } else if (name in options) {
         value = this.nullPlaceholder(placeholder, message);
       } else {
         value = this.missingPlaceholder(placeholder, message);
       }
 
-      regex = new RegExp(placeholder.replace(/\{/gm, "\\{").replace(/\}/gm, "\\}"));
+      regex = new RegExp(placeholder.replace(/\{/gm, '\\{').replace(/\}/gm, '\\}'));
       message = message.replace(regex, value);
     }
 
-    return message.replace(/_#\$#_/g, "$");
+    return message.replace(/_#\$#_/g, '$');
   };
 
   // Pluralize the given scope using the `count` value.
@@ -507,13 +509,13 @@ global._Date = global._Date || Date;
   // Return a missing translation message for the given parameters.
   I18n.missingTranslation = function(scope, options) {
     //guess intended string
-    if(this.missingBehaviour == 'guess'){
+    if (this.missingBehaviour === 'guess') {
       //get only the last portion of the scope
       var s = scope.split('.').slice(-1)[0];
       //replace underscore with space && camelcase with space and lowercase letter
       return (this.missingTranslationPrefix.length > 0 ? this.missingTranslationPrefix : '') +
-          s.replace('_',' ').replace(/([a-z])([A-Z])/g,
-          function(match, p1, p2) {return p1 + ' ' + p2.toLowerCase()} );
+          s.replace('_', ' ').replace(/([a-z])([A-Z])/g,
+          function(match, p1, p2) { return p1 + ' ' + p2.toLowerCase() ; } );
     }
 
     var fullScope           = this.getFullScope(scope, options);
@@ -524,7 +526,7 @@ global._Date = global._Date || Date;
 
   // Return a missing placeholder message for given parameters
   I18n.missingPlaceholder = function(placeholder, message) {
-    return "[missing " + placeholder + " value]";
+    return '[missing ' + placeholder + ' value]';
   };
 
   I18n.nullPlaceholder = function() {
@@ -545,19 +547,19 @@ global._Date = global._Date || Date;
   I18n.toNumber = function(number, options) {
     options = this.prepareOptions(
         options
-      , this.lookup("number.format")
+      , this.lookup('number.format')
       , NUMBER_FORMAT
     );
 
     var negative = number < 0
       , string = Math.abs(number).toFixed(options.precision).toString()
-      , parts = string.split(".")
+      , parts = string.split('.')
       , precision
       , buffer = []
       , formattedNumber
-      , format = options.format || "%n"
-      , sign = negative ? "-" : ""
-    ;
+      , format = options.format || '%n'
+      , sign = negative ? '-' : ''
+      ;
 
     number = parts[0];
     precision = parts[1];
@@ -570,7 +572,7 @@ global._Date = global._Date || Date;
     formattedNumber = buffer.join(options.delimiter);
 
     if (options.strip_insignificant_zeros && precision) {
-      precision = precision.replace(/0+$/, "");
+      precision = precision.replace(/0+$/, '');
     }
 
     if (options.precision > 0 && precision) {
@@ -578,16 +580,16 @@ global._Date = global._Date || Date;
     }
 
     if (options.sign_first) {
-      format = "%s" + format;
+      format = '%s' + format;
     }
     else {
-      format = format.replace("%n", "%s%n");
+      format = format.replace('%n', '%s%n');
     }
 
     formattedNumber = format
-      .replace("%u", options.unit)
-      .replace("%n", formattedNumber)
-      .replace("%s", sign)
+      .replace('%u', options.unit)
+      .replace('%n', formattedNumber)
+      .replace('%s', sign)
     ;
 
     return formattedNumber;
@@ -611,8 +613,8 @@ global._Date = global._Date || Date;
   I18n.toCurrency = function(number, options) {
     options = this.prepareOptions(
         options
-      , this.lookup("number.currency.format", options)
-      , this.lookup("number.format", options)
+      , this.lookup('number.currency.format', options)
+      , this.lookup('number.format', options)
       , CURRENCY_FORMAT
     );
 
@@ -630,12 +632,12 @@ global._Date = global._Date || Date;
     options || (options = {});
 
     switch (scope) {
-      case "currency":
+      case 'currency':
         return this.toCurrency(value, options);
-      case "number":
-        scope = this.lookup("number.format");
+      case 'number':
+        scope = this.lookup('number.format');
         return this.toNumber(value, scope);
-      case "percentage":
+      case 'percentage':
         return this.toPercentage(value);
       default:
         var localizedValue;
@@ -666,9 +668,9 @@ global._Date = global._Date || Date;
   I18n.parseDate = function(date) {
     var matches, convertedDate, fraction;
     // we have a date, so just return it.
-    if (typeof(date) == "object") {
+    if (typeof(date) === 'object') {
       return date;
-    };
+    }
 
     matches = date.toString().match(/(\d{4})-(\d{2})-(\d{2})(?:[ T](\d{2}):(\d{2}):(\d{2})([\.,]\d{1,3})?)?(Z|\+00:?00)?/);
 
@@ -680,14 +682,14 @@ global._Date = global._Date || Date;
       // month starts on 0
       matches[2] -= 1;
 
-      fraction = matches[7] ? 1000 * ("0" + matches[7]) : null;
+      fraction = matches[7] ? 1000 * ('0' + matches[7]) : null;
 
       if (matches[8]) {
         convertedDate = new _Date(_Date.UTC(matches[1], matches[2], matches[3], matches[4], matches[5], matches[6], fraction));
       } else {
         convertedDate = new _Date(matches[1], matches[2], matches[3], matches[4], matches[5], matches[6], fraction);
       }
-    } else if (typeof(date) == "number") {
+    } else if (typeof(date) === 'number') {
       // UNIX timestamp
       convertedDate = new _Date();
       convertedDate.setTime(date);
@@ -696,8 +698,8 @@ global._Date = global._Date || Date;
       // webkit/firefox, but not by IE, so we must parse it manually.
       convertedDate = new _Date();
       convertedDate.setTime(_Date.parse([
-        RegExp.$1, RegExp.$2, RegExp.$3, RegExp.$6, RegExp.$4, RegExp.$5
-      ].join(" ")));
+        RegExp.$1, RegExp.$2, RegExp.$3, RegExp.$6, RegExp.$4, RegExp.$5,
+      ].join(' ')));
     } else if (date.match(/\d+ \d+:\d+:\d+ [+-]\d+ \d+/)) {
       // a valid javascript format with timezone info
       convertedDate = new _Date();
@@ -742,9 +744,9 @@ global._Date = global._Date || Date;
   //     %z  - Timezone offset (+0545)
   //
   I18n.strftime = function(date, format) {
-    var options = this.lookup("date")
+    var options = this.lookup('date')
       , meridianOptions = I18n.meridian()
-    ;
+      ;
 
     if (!options) {
       options = {};
@@ -764,13 +766,13 @@ global._Date = global._Date || Date;
       , offset = date.getTimezoneOffset()
       , absOffsetHours = Math.floor(Math.abs(offset / 60))
       , absOffsetMinutes = Math.abs(offset) - (absOffsetHours * 60)
-      , timezoneoffset = (offset > 0 ? "-" : "+") +
-          (absOffsetHours.toString().length < 2 ? "0" + absOffsetHours : absOffsetHours) +
-          (absOffsetMinutes.toString().length < 2 ? "0" + absOffsetMinutes : absOffsetMinutes)
+      , timezoneoffset = (offset > 0 ? '-' : '+') +
+          (absOffsetHours.toString().length < 2 ? '0' + absOffsetHours : absOffsetHours) +
+          (absOffsetMinutes.toString().length < 2 ? '0' + absOffsetMinutes : absOffsetMinutes)
       // For now always use the default one later on allow passing a timezone as params
       // Still need to be dynamic because of PDT and PST
       , timezoneName = moment(date).tz(defaultTimezoneName).format('z')
-    ;
+      ;
 
     if (hour12 > 12) {
       hour12 = hour12 - 12;
@@ -778,30 +780,30 @@ global._Date = global._Date || Date;
       hour12 = 12;
     }
 
-    format = format.replace("%a", options.abbr_day_names[weekDay]);
-    format = format.replace("%A", options.day_names[weekDay]);
-    format = format.replace("%b", options.abbr_month_names[month]);
-    format = format.replace("%B", options.month_names[month]);
-    format = format.replace("%d", padding(day));
-    format = format.replace("%e", day);
-    format = format.replace("%-d", day);
-    format = format.replace("%H", padding(hour));
-    format = format.replace("%-H", hour);
-    format = format.replace("%I", padding(hour12));
-    format = format.replace("%-I", hour12);
-    format = format.replace("%m", padding(month));
-    format = format.replace("%-m", month);
-    format = format.replace("%M", padding(mins));
-    format = format.replace("%-M", mins);
-    format = format.replace("%p", meridianOptions[meridian]);
-    format = format.replace("%S", padding(secs));
-    format = format.replace("%-S", secs);
-    format = format.replace("%w", weekDay);
-    format = format.replace("%y", padding(year));
-    format = format.replace("%-y", padding(year).replace(/^0+/, ""));
-    format = format.replace("%Y", year);
-    format = format.replace("%z", timezoneoffset);
-    format = format.replace("%Z", timezoneName);
+    format = format.replace('%a', options.abbr_day_names[weekDay]);
+    format = format.replace('%A', options.day_names[weekDay]);
+    format = format.replace('%b', options.abbr_month_names[month]);
+    format = format.replace('%B', options.month_names[month]);
+    format = format.replace('%d', padding(day));
+    format = format.replace('%e', day);
+    format = format.replace('%-d', day);
+    format = format.replace('%H', padding(hour));
+    format = format.replace('%-H', hour);
+    format = format.replace('%I', padding(hour12));
+    format = format.replace('%-I', hour12);
+    format = format.replace('%m', padding(month));
+    format = format.replace('%-m', month);
+    format = format.replace('%M', padding(mins));
+    format = format.replace('%-M', mins);
+    format = format.replace('%p', meridianOptions[meridian]);
+    format = format.replace('%S', padding(secs));
+    format = format.replace('%-S', secs);
+    format = format.replace('%w', weekDay);
+    format = format.replace('%y', padding(year));
+    format = format.replace('%-y', padding(year).replace(/^0+/, ''));
+    format = format.replace('%Y', year);
+    format = format.replace('%z', timezoneoffset);
+    format = format.replace('%Z', timezoneName);
 
     return format;
   };
@@ -810,7 +812,7 @@ global._Date = global._Date || Date;
   I18n.toTime = function(scope, dateString) {
     var date = this.parseDate(dateString)
       , format = this.lookup(scope)
-    ;
+      ;
 
     if (date.toString().match(/invalid/i)) {
       return date.toString();
@@ -827,8 +829,8 @@ global._Date = global._Date || Date;
   I18n.toPercentage = function(number, options) {
     options = this.prepareOptions(
         options
-      , this.lookup("number.percentage.format")
-      , this.lookup("number.format")
+      , this.lookup('number.percentage.format')
+      , this.lookup('number.format')
       , PERCENTAGE_FORMAT
     );
 
@@ -842,7 +844,7 @@ global._Date = global._Date || Date;
       , iterations = 0
       , unit
       , precision
-    ;
+      ;
 
     while (size >= kb && iterations < 4) {
       size = size / kb;
@@ -850,16 +852,16 @@ global._Date = global._Date || Date;
     }
 
     if (iterations === 0) {
-      unit = this.t("number.human.storage_units.units.byte", {count: size});
+      unit = this.t('number.human.storage_units.units.byte', {count: size});
       precision = 0;
     } else {
-      unit = this.t("number.human.storage_units.units." + SIZE_UNITS[iterations]);
+      unit = this.t('number.human.storage_units.units.' + SIZE_UNITS[iterations]);
       precision = (size - Math.floor(size) === 0) ? 0 : 1;
     }
 
     options = this.prepareOptions(
         options
-      , {unit: unit, precision: precision, format: "%n%u", delimiter: ""}
+      , {unit: unit, precision: precision, format: '%n%u', delimiter: ''}
     );
 
     return this.toNumber(size, options);
@@ -882,7 +884,7 @@ global._Date = global._Date || Date;
     }
 
     return scope;
-  }
+  };
 
   // Set aliases, so we can save some typing.
   I18n.t = I18n.translate;
