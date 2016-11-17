@@ -12,14 +12,14 @@ class AutoScaleText extends React.Component {
   static propTypes = {
     ...Text.propTypes,
     maxFontSize: React.PropTypes.number.isRequired,
-    maxHeight: React.PropTypes.number.isRequired,
+    //maxHeight: React.PropTypes.number.isRequired,
     color: React.PropTypes.string,
-    style: React.PropTypes.oneOfType([
-      Text.propTypes.style,
-      React.PropTypes.shape({
-        width: React.PropTypes.number,
-      }),
-    ]).isRequired,
+    //style: React.PropTypes.oneOfType([
+    //  React.PropTypes.number,
+    //  React.PropTypes.shape({
+    //    width: React.PropTypes.number,
+    //  }),
+    //]),
   };
 
   static defaultProps = {
@@ -31,17 +31,21 @@ class AutoScaleText extends React.Component {
 
     this.state = {
       fontSize: props.maxFontSize,
-      finished: false,
+      finished: null,
     };
 
-    this.visible = true;
+    this.visible = true
   }
 
   determineFontSize = () => {
     UIManager.measure(ReactNative.findNodeHandle(this.refs.textView), (x, y, w, h, px, py) => {
       if (!this.visible) return;
 
-      if (h > this.props.maxHeight) {
+      var tooBig = this.props.maxHeight && h > this.props.maxHeight;
+      if (!tooBig) {
+        tooBig = this.props.maxWidth && w > this.props.maxWidth;
+      }
+      if (tooBig) {
         this.setState({
           fontSize: this.state.fontSize - 0.5,
         });
@@ -61,13 +65,14 @@ class AutoScaleText extends React.Component {
     return (
       <Text
         ref='textView'
-        onLayout={this.determineFontSize}
+        //onLayout={this.determineFontSize}
+        allowFontScaling={false}
         {...this.props}
         style={[
           this.props.style,
           {
             fontSize: this.state.fontSize,
-            color: this.state.finished ? this.props.color : 'transparent',
+            //color: this.state.finished ? this.props.color || 'black' : 'transparent',
           },
         ]}
       >
