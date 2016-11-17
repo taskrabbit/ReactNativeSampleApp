@@ -85,7 +85,7 @@ var NavigationButton = React.createClass({
       return null;
     }
 
-    var backLabel = route.navBack || {icon: 'back'}; //{icon: 'caret-left-semi'};
+    var backLabel = route.navBack || {label: 'back'}; //{icon: 'caret-left-semi'};
     return this.makeButton(backLabel, styles.navBarLeftButton, this.sendBack);
   },
 
