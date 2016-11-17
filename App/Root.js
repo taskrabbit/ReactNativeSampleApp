@@ -52,7 +52,7 @@ var Root = React.createClass({
   onUserChange: function() {
     var state = getUserState();
     // reset the route stack on user change.
-    state.routeStack = null;
+    state.navigationState = null;
     this.setState(state);
   },
 
@@ -88,31 +88,31 @@ var Root = React.createClass({
     return this.state.debug.currentRoutePath;
   },
 
-  getDefaultRouteStack: function() {
+  getDefaultNavigationState: function() {
     return Routes.parse(null, this.state.user.isLoggedIn(), true);
   },
 
   renderContent: function() {
     if (this.state.routeUnderTest) return null;
 
-    var routeStack = this.state.routeStack;
-    if (!routeStack && this.getSavedCurrentRoutePath()) {
-      routeStack = Routes.parse(this.getSavedCurrentRoutePath(), this.state.user.isLoggedIn(), true);
+    var navigationState = this.state.navigationState;
+    if (!navigationState && this.getSavedCurrentRoutePath()) {
+      navigationState = Routes.parse(this.getSavedCurrentRoutePath(), this.state.user.isLoggedIn(), true);
     }
-    if (!routeStack) {
-      routeStack = this.getDefaultRouteStack();
+    if (!navigationState) {
+      navigationState = this.getDefaultNavigationState();
     }
 
     if(this.state.user.isLoggedIn()) {
       return (
         <LoggedIn
           ref="current"
-          routeStack={routeStack}
+          navigationState={navigationState}
         />
       );
     }
     else {
-      return(<LoggedOut ref="current" routeStack={routeStack} />);
+      return(<LoggedOut ref="current" navigationState={navigationState} />);
     }
   },
 

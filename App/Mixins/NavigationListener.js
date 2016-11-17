@@ -23,8 +23,8 @@ var NavigationListener = {
 
   componentWillMount: function() {
     this._hasNavigationFocus = false;
-    this._onDidFocusNavigationSub  = this.props.navigator.navigationContext.addListener('didfocus',  this._onDidFocusNavigation)
-    this._onWillFocusNavigationSub = this.props.navigator.navigationContext.addListener('willfocus', this._onWillFocusNavigation)
+    // TODO: this._onDidFocusNavigationSub  = this.props.navigator.navigationContext.addListener('didfocus',  this._onDidFocusNavigation)
+    // TODO: this._onWillFocusNavigationSub = this.props.navigator.navigationContext.addListener('willfocus', this._onWillFocusNavigation)
   },
 
   componentWillUnmount: function() {

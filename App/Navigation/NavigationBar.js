@@ -1,16 +1,19 @@
 import React from 'react';
 import {
-  Navigator,
   StyleSheet,
-  TouchableOpacity,
   View,
+  NavigationExperimental,
 } from 'react-native';
 
 import cssVar from '../Lib/cssVar';
 
-import Back                         from '../Platform/Back';
-import NavigatorNavigationBarStyles from '../Platform/NavigatorNavigationBarStyles';
-import NavigationBarRouteMapper     from '../Navigation/NavigationBarRouteMapper';
+import Back             from '../Platform/Back';
+import NavigationHeader from '../Navigation/NavigationHeader';
+import Navigator        from '../Navigation/Navigator';
+
+const {
+  CardStack: NavigationCardStack,
+} = NavigationExperimental;
 
 var stacksEqual = function(one, two, length) {
   if (one.length < length) return false;
@@ -33,7 +36,7 @@ var Container = React.createClass({
         ref={this.props.onLoadedScene}
       >
         <Component ref="mainComponent"
-          navigator={this.props.navigator}
+          navigation={this.props.navigation}
           currentRoute={this.props.route}
           {...this.props.route.passProps}
         />
@@ -42,21 +45,32 @@ var Container = React.createClass({
   }
 });
 
-const routeMapper = new NavigationBarRouteMapper();
-
 var NavigationBar = {
   getInitialState: function() {
     return {};
   },
 
-  renderScene: function(route, navigator) {
+  renderHeader: function(sceneProps) {
+    if (this.props.navBarHidden) {
+      //return <View style={{height: 0}} />
+      return null;
+    }
+
+    return (
+      <NavigationHeader {...sceneProps} navigation={this.navigation} />
+    );
+
+  },
+
+  renderScene: function(sceneProps) {
+    var route = sceneProps.scene.route;
     console.log('renderScene: ' + route.routePath);
 
     return(
       <Container 
         ref={this.onLoadedScene}
         route={route}
-        navigator={navigator}
+        navigation={this.navigation}
         {...this.props}
       />
     );
@@ -72,76 +86,24 @@ var NavigationBar = {
     }
   },
 
-  componentDidUpdate: function(prevProps, prevState) {
-    var current = this.refs.navigator.getCurrentRoutes();
-    
-    if (!current) return; // otherwise initial
-
-    var next = this.props.routeStack.path;
-    var currentRoute = current[current.length - 1];
-    var currentPath  = currentRoute.routePath;
-    var nextRoute    = next[next.length - 1];
-    var nextPath     = nextRoute.routePath;
-
-    if(stacksEqual(current, next, current.length)
-          && next[next.length-2]
-          && next[next.length-2].routePath === currentPath) {
-      // simple push
-      this.refs.navigator.push(nextRoute);
-    }
-    else if(stacksEqual(current, next, next.length)
-          && current[current.length-2]
-          && current[current.length-2].routePath === nextPath) {
-      // simple pop
-      this.refs.navigator.pop();
-    }
-    else if(current.length === next.length
-          && stacksEqual(current, next, next.length-1)) {
-      // switching out last one
-      if (currentRoute.component === nextRoute.component
-          && this._currentComponent
-          && this._currentComponent.setNavigatorRoute) {
-        // switch out current one, same type
-        if (this._currentComponent.props.currentRoute) {
-          // update it in place
-          this._currentComponent.props.currentRoute = currentRoute;
-        }
-        this._currentComponent.setNavigatorRoute(nextRoute);
-      }
-      else {
-        this.refs.navigator.replace(nextRoute);
-      }
-    }
-    else {
-      // something more complicated
-      this.refs.navigator.immediatelyResetRouteStack(this.props.routeStack.path);
-    }
-  },
-
-  renderNavBar: function() {
-    if (this.props.navBarHidden) return null;
-
-    return (
-      <Navigator.NavigationBar
-        routeMapper={routeMapper}
-        style={styles.navBar}
-      />
-    );
+  componentWillMount: function() {
+    this.navigation = new Navigator();
   },
 
   componentDidMount: function() {
-    Back.setNavigator(this.refs.navigator);
+    this.navigation.setStack(this.refs.stack);
+    Back.setNavigator(this.navigation);
   },
 
   render: function() {
     return (
       <View style={styles.appContainer}>
-        <Navigator
-          ref="navigator"
+
+        <NavigationCardStack
+          ref="stack"
+          navigationState={this.props.navigationState}
           renderScene={this.renderScene}
-          navBarHidden={this.props.navBarHidden}
-          initialRouteStack={this.props.routeStack.path}
-          navigationBar={this.renderNavBar()}
+          renderHeader={this.renderHeader}
         />
       </View>
     );
@@ -154,16 +116,14 @@ var styles = StyleSheet.create({
   },
   navBar: {
     backgroundColor: cssVar('blue50'),
-    height: NavigatorNavigationBarStyles.General.TotalNavHeight
   },
   scene: {
     flex: 1,
-    marginTop: NavigatorNavigationBarStyles.General.TotalNavHeight,
     backgroundColor: cssVar('gray5'),
   },
   sceneHidden: {
     marginTop: 0
-  }
+  },
 });
 
 

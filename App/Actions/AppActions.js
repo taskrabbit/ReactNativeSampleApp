@@ -65,15 +65,6 @@ var AppActions = {
     navItem.targetPath = currentRoute.routePath;
     this.launchRelativeItem(currentRoute, navItem);
   },
-
-  goBack: function(navigator) {
-    var current  = navigator.getCurrentRoutes();
-    var previous = current[0];
-    if (current.length > 2) {
-      previous = current[current.length-2];
-    }
-    AppActions.launchRoutePath(previous.routePath);
-  }
   
 };
 

@@ -86,11 +86,11 @@ var NavigationButton = React.createClass({
     }
 
     var backLabel = route.navBack || {icon: 'back'}; //{icon: 'caret-left-semi'};
-    return this.makeButton(backLabel, styles.navBarLeftButton, this.goBack);
+    return this.makeButton(backLabel, styles.navBarLeftButton, this.sendBack);
   },
 
-  goBack: function() {
-    AppActions.goBack(this.props.navigator);
+  sendBack: function() {
+    this.props.navigation.back();
   },
 
   render: function() {

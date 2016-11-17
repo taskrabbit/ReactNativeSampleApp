@@ -18,7 +18,7 @@ var Launcher = {
           alert("Unknown route: " + routePath);
         }
         else {
-          root.setState({routeStack: parsed});
+          root.setState({navigationState: parsed});
         }
         break;
       case AppConstants.NETWORK_ACTIVITY:
