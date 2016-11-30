@@ -109,8 +109,11 @@ var Router = {
 
     var found = {};
     // TODO: add query parameters to last item on stack
-    found.currentPath = stack[stack.length - 1].routePath;
-    found.path = stack;
+    found.index  = stack.length - 1;
+    for(var j=0; j < stack.length; j++) {
+      stack[j].key = stack[j].routePath;
+    }
+    found.routes = stack;
     return found;
   }
 };

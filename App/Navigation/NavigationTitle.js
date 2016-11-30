@@ -58,28 +58,39 @@ var NavigationTitle = React.createClass({
   render: function() {
     var title = this.state.updatedTitle || this.props.route.title;
     return (
-      <AutoScaleText
-        style={[styles.navBarTitleText, {width: width - this.getButtonPadding() * 2}]}
-        allowFontScaling={false}
-        maxFontSize={20}
-        maxHeight={50}
-        color='white'
-      >
-        {title}
-      </AutoScaleText>
+      <View style={styles.title}>
+        <AutoScaleText
+          style={styles.titleText}
+          allowFontScaling={false}
+          maxFontSize={18}
+          maxHeight={50}
+        >
+          {title}
+        </AutoScaleText>
+      </View>
     );
   }
 });
 
 const marginVertical = Platform.OS === 'ios' ? 8 : 15;
 var styles = StyleSheet.create({
-  navBarTitleText: {
-    fontFamily: cssVar('fontRegular'),
-    fontWeight: '500',
-    marginVertical: marginVertical,
-    textAlign: 'center',
-    paddingBottom: 6,
+  title: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginHorizontal: 16
   },
+
+  titleText: {
+    color: 'white',
+    fontFamily: cssVar('fontRegular'),
+    flex: 1,
+    fontSize: 18,
+    fontWeight: '500',
+    textAlign: 'center',
+    //textAlign: Platform.OS === 'ios' ? 'center' : 'left',
+    paddingBottom: 6,
+  }
 });
 
 export default NavigationTitle;

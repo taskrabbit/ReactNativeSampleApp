@@ -13,7 +13,7 @@ var SimpleList = React.createClass({
   renderRow: function(item, sectionId, rowId) {
     var passAlong = {};
     if (this.props.currentRoute) passAlong.currentRoute = this.props.currentRoute;
-    if (this.props.navigator)    passAlong.navigator    = this.props.navigator;
+    if (this.props.navigation)   passAlong.navigation   = this.props.navigation;
     if (this.props.nextIcon)     passAlong.nextIcon     = this.props.nextIcon;
     if (this.props.noTap)        passAlong.noTap        = this.props.noTap;
 

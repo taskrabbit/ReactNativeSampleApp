@@ -14,8 +14,7 @@ const Back = {
       //   AppActions.toggleDrawer();
       //   return true;
       // }
-      if (navigator && navigator.getCurrentRoutes().length > 1) {
-        AppActions.goBack(navigator);
+      if (navigator && navigator.back()) {
         return true;
       }
       return false;

@@ -9,7 +9,6 @@ import Locale from '../Locale';
 import TextInput   from '../Components/TextInput';
 import Button      from '../Components/Button';
 import PostActions from '../Actions/PostActions';
-import AppActions  from '../Actions/AppActions';
 
 import KeyboardListener from '../Mixins/KeyboardListener';
 
@@ -34,7 +33,7 @@ var CreatePost = React.createClass({
         alert(error.message);
       }
       else {
-        AppActions.goBack(this.props.navigator);
+        this.props.navigation.back();
       }
     }.bind(this));
   },
