@@ -83,7 +83,6 @@ var styles = StyleSheet.create({
     padding: 10
   },
   control: {
-    flex: 1,
     flexDirection: 'row',
     borderColor: 'white',
     borderWidth: 1,
@@ -95,7 +94,6 @@ var styles = StyleSheet.create({
   button: {
     padding: 5,
     margin: 1,
-    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },

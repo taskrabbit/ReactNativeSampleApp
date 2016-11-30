@@ -160,8 +160,7 @@ const styles = StyleSheet.create({
     borderRadius: 1.5 * PixelRatio.get(),
     borderWidth: 1 / PixelRatio.get(),
     borderColor: 'transparent',
-    flex: 1,
-    flexDirection: 'row',
+
     alignItems: 'center',
   },
 
