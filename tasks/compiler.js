@@ -1,3 +1,3 @@
 require('babel-core/register');
 
-module.exports = require('./_compiler').default;
+module.exports = require('./_compiler');
